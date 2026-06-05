@@ -1,0 +1,33 @@
+---
+description: OpenClaw CLI boundary — when to delegate vs diagnose locally
+alwaysApply: true
+---
+
+# OpenClaw boundary
+
+OpenClaw is **config authority**. DragonClaw orchestrates; it does not invent schema rules.
+
+## Always use OC CLI for
+
+- `openclaw config validate` before apply
+- `openclaw doctor` / `--fix` during troubleshoot (LLM interprets output)
+- `openclaw models list`, `models status` for model probes
+- `openclaw onboard --non-interactive` for API-key provider auth when catalog supports it
+- Interactive configure/channel flows via **TTY handoff** (`oc_interactive`) — WhatsApp QR, OAuth, long scrollable pickers
+
+## DragonClaw owns
+
+- `dragonclaw` entry, install bootstrap, session/checklist
+- Menu framing and NL routing to `flow_id`
+- Local secret inspection for diagnosis (with user consent)
+- Validate-gated minimal patches and backups
+- Plain-English explanation of OC tool output
+
+## Non-interactive vs interactive
+
+- `subprocess.run(capture_output=True)` — tools only (`oc_json`, doctor, validate)
+- Foreground PTY — user-facing OC wizards (`oc_interactive`); resume agent when subprocess exits
+
+## Failure handling
+
+On validate or probe failure: feed error to LLM, retry with tools — do not emit another guessed full config.

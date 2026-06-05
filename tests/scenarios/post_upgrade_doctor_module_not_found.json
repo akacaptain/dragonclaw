@@ -1,0 +1,26 @@
+{
+  "id": "post_upgrade_doctor_module_not_found",
+  "description": "After OC 2026.4.15→2026.6.1 upgrade, doctor crashes with ERR_MODULE_NOT_FOUND; gateway LaunchAgent stale.",
+  "oc_version": "2026.6.1",
+  "tags": ["doctor", "post-upgrade", "gateway", "fixture"],
+  "workspace": {},
+  "tool_output": {
+    "openclaw_version": "OpenClaw 2026.6.1 (2e08f0f)",
+    "openclaw_doctor": {
+      "ok": false,
+      "output": "node_modules was not installed by pnpm (missing node_modules/.pnpm). Run: pnpm install",
+      "error": "ERR_MODULE_NOT_FOUND: Cannot find module '.../openclaw/dist/doctor-state-migrations-BM2qwKPu.js'"
+    },
+    "openclaw_gateway_status": {
+      "service_issue": "Gateway service was installed by OpenClaw 2026.4.14; current CLI is 2026.6.1",
+      "recommendation": "run openclaw doctor (or openclaw doctor --repair)"
+    }
+  },
+  "user_message": "I upgraded OpenClaw and now doctor is broken. Fix my setup.",
+  "gold": {
+    "action": "reply",
+    "must_mention": ["doctor", "upgrade", "repair"],
+    "must_not": ["__replace_file__"]
+  },
+  "notes": "Captured from dev machine Jun 2026. Doctor itself may be unusable; agent should interpret probe output and suggest reinstall/repair paths without guessing config."
+}

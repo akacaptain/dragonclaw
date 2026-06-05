@@ -1,0 +1,2050 @@
+{
+  "metadata": {
+    "oc_version": "2026.6.1",
+    "extracted_at": "2026-06-05T18:43:49.112070+00:00",
+    "source_hash": "c49a34bd92c2ba35a2cf15b3c2c01f28f91a966796cd8c0eb110e672e275020d",
+    "source_path": "/Users/captain/dragonclaw/.oc-source"
+  },
+  "files": [
+    {
+      "path": "$HOME/.openclaw/openclaw.json",
+      "discovered_from": "scripts/e2e/parallels/npm-update-scripts.ts",
+      "required": false
+    },
+    {
+      "path": "$OPENCLAW_HOME/.openclaw/openclaw.json",
+      "discovered_from": "src/utils.test.ts",
+      "required": false
+    },
+    {
+      "path": "$OPENCLAW_STATE_DIR////openclaw.json",
+      "discovered_from": "src/logging/diagnostic-support-export.test.ts",
+      "required": false
+    },
+    {
+      "path": "$OPENCLAW_STATE_DIR/openclaw.json",
+      "discovered_from": "scripts/lib/openclaw-test-state.mjs",
+      "required": false
+    },
+    {
+      "path": "$openclaw_package_dir/package.json",
+      "discovered_from": "test/scripts/npm-telegram-live.test.ts",
+      "required": false
+    },
+    {
+      "path": "$out/slack-auth-test.json",
+      "discovered_from": "extensions/qa-lab/src/mantis/slack-desktop-smoke.runtime.ts",
+      "required": false
+    },
+    {
+      "path": "$plugin_dir/openclaw.plugin.json",
+      "discovered_from": "scripts/e2e/parallels/linux-smoke.ts",
+      "required": false
+    },
+    {
+      "path": "$root/brew/openclaw/package.json",
+      "discovered_from": "test/scripts/install-sh.test.ts",
+      "required": false
+    },
+    {
+      "path": "$root/fnm/openclaw/package.json",
+      "discovered_from": "test/scripts/install-sh.test.ts",
+      "required": false
+    },
+    {
+      "path": "$root/only/openclaw/package.json",
+      "discovered_from": "test/scripts/install-sh.test.ts",
+      "required": false
+    },
+    {
+      "path": "$workspace/.openclaw/workspace-state.json",
+      "discovered_from": "scripts/e2e/parallels/agent-workspace.ts",
+      "required": false
+    },
+    {
+      "path": "${APPDATA}/gcloud/application_default_credentials.json",
+      "discovered_from": "src/agents/model-auth.profiles.test.ts",
+      "required": false
+    },
+    {
+      "path": "${HOME}/.config/gcloud/application_default_credentials.json",
+      "discovered_from": "src/agents/model-auth.profiles.test.ts",
+      "required": false
+    },
+    {
+      "path": "${HOME}/.config/openai/credentials.json",
+      "discovered_from": "src/plugins/manifest-registry.test.ts",
+      "required": false
+    },
+    {
+      "path": "- config: ~/.openclaw/config.json",
+      "discovered_from": "src/infra/backup-create.test.ts",
+      "required": false
+    },
+    {
+      "path": "--config C://Users//me//cfg.json",
+      "discovered_from": "extensions/acpx/src/runtime-internals/mcp-command-line.test.ts",
+      "required": false
+    },
+    {
+      "path": "--config=$OPENCLAW_STATE_DIR/openclaw.json",
+      "discovered_from": "src/trajectory/metadata.test.ts",
+      "required": false
+    },
+    {
+      "path": "--config=/Users/tester/.openclaw/openclaw.json",
+      "discovered_from": "src/trajectory/metadata.test.ts",
+      "required": false
+    },
+    {
+      "path": "--config=a=b.json",
+      "discovered_from": "src/infra/inline-option-token.test.ts",
+      "required": false
+    },
+    {
+      "path": "-e OPENCLAW_CONFIG_PATH=/home/node/.openclaw/openclaw.json",
+      "discovered_from": "src/docker-setup.e2e.test.ts",
+      "required": false
+    },
+    {
+      "path": "../../../apps/shared/OpenClawKit/Sources/OpenClawKit/Resources/tool-display.json",
+      "discovered_from": "ui/src/ui/tool-display.ts",
+      "required": false
+    },
+    {
+      "path": "../../../test/fixtures/talk-config-contract.json",
+      "discovered_from": "packages/gateway-protocol/src/talk-config.contract.test.ts",
+      "required": false
+    },
+    {
+      "path": "../../openclaw.plugin.json",
+      "discovered_from": "extensions/codex/src/app-server/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "../../tsconfig.json",
+      "discovered_from": "src/plugins/contracts/extension-package-project-boundaries.test.ts",
+      "required": false
+    },
+    {
+      "path": "../openclaw.plugin.json",
+      "discovered_from": "extensions/memory-core/src/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "../tsconfig.json",
+      "discovered_from": "src/plugins/contracts/extension-package-project-boundaries.test.ts",
+      "required": false
+    },
+    {
+      "path": "../tsconfig.package-boundary.base.json",
+      "discovered_from": "scripts/check-extension-package-tsc-boundary.mjs",
+      "required": false
+    },
+    {
+      "path": ".claude/.credentials.json",
+      "discovered_from": "test/test-env.ts",
+      "required": false
+    },
+    {
+      "path": ".codex/auth.json",
+      "discovered_from": "test/test-env.ts",
+      "required": false
+    },
+    {
+      "path": ".credentials.json",
+      "discovered_from": "test/test-env.test.ts",
+      "required": false
+    },
+    {
+      "path": ".gemini/oauth_creds.json",
+      "discovered_from": "src/agents/cli-credentials.ts",
+      "required": false
+    },
+    {
+      "path": ".minimax/oauth_creds.json",
+      "discovered_from": "src/agents/cli-credentials.ts",
+      "required": false
+    },
+    {
+      "path": ".openclaw-runtime-deps-stamp.json",
+      "discovered_from": "src/commands/doctor/shared/plugin-dependency-cleanup.ts",
+      "required": false
+    },
+    {
+      "path": ".openclaw-runtime-deps.json",
+      "discovered_from": "src/commands/doctor/shared/plugin-dependency-cleanup.ts",
+      "required": false
+    },
+    {
+      "path": ".openclaw-wiki/cache/agent-digest.json",
+      "discovered_from": "extensions/memory-wiki/src/prompt-section.ts",
+      "required": false
+    },
+    {
+      "path": ".openclaw-wiki/state.json",
+      "discovered_from": "extensions/memory-wiki/src/vault.ts",
+      "required": false
+    },
+    {
+      "path": ".openclaw//openclaw.json",
+      "discovered_from": "scripts/e2e/parallels/npm-update-scripts.ts",
+      "required": false
+    },
+    {
+      "path": "/.openclaw-runtime-deps-stamp.json",
+      "discovered_from": "scripts/release-check.ts",
+      "required": false
+    },
+    {
+      "path": "/Users/test/.openclaw/plugins/demo-provider/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-install-catalog.test.ts",
+      "required": false
+    },
+    {
+      "path": "/Users/test/.openclaw/plugins/vllm/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-install-catalog.test.ts",
+      "required": false
+    },
+    {
+      "path": "/Users/test/Dropbox/.openclaw/openclaw.json",
+      "discovered_from": "src/security/audit-synced-folder.test.ts",
+      "required": false
+    },
+    {
+      "path": "/__openclaw/control-ui-config.json",
+      "discovered_from": "ui/vite.config.ts",
+      "required": false
+    },
+    {
+      "path": "/app/dist/extensions/diagnostics-otel/openclaw.plugin.json",
+      "discovered_from": "src/cli/plugins-location-bridges.test.ts",
+      "required": false
+    },
+    {
+      "path": "/app/dist/extensions/local-only/openclaw.plugin.json",
+      "discovered_from": "src/cli/plugins-location-bridges.test.ts",
+      "required": false
+    },
+    {
+      "path": "/app/node_modules/openclaw/package.json",
+      "discovered_from": "test/scripts/npm-telegram-live.test.ts",
+      "required": false
+    },
+    {
+      "path": "/data/.openclaw/openclaw.json",
+      "discovered_from": "src/config/io.eacces.test.ts",
+      "required": false
+    },
+    {
+      "path": "/home/admin/.openclaw/openclaw.json",
+      "discovered_from": "extensions/feishu/src/docx.test.ts",
+      "required": false
+    },
+    {
+      "path": "/home/alice/.openclaw/state.json",
+      "discovered_from": "test/scripts/dev-tooling-safety.test.ts",
+      "required": false
+    },
+    {
+      "path": "/home/myuser/.openclaw/openclaw.json",
+      "discovered_from": "src/config/io.eacces.test.ts",
+      "required": false
+    },
+    {
+      "path": "/home/tester/.docker/config.json",
+      "discovered_from": "src/agents/sandbox/validate-sandbox-security.test.ts",
+      "required": false
+    },
+    {
+      "path": "/home/user/.openclaw/cron/jobs.json",
+      "discovered_from": "src/agents/tools/cron-tool.test.ts",
+      "required": false
+    },
+    {
+      "path": "/home/user/.openclaw/openclaw.json",
+      "discovered_from": "src/cli/config-cli.test.ts",
+      "required": false
+    },
+    {
+      "path": "/managed/openclaw.json",
+      "discovered_from": "src/cli/update-cli/update-command.test.ts",
+      "required": false
+    },
+    {
+      "path": "/mnt/c/Users/Trevor/.openclaw/openclaw.json",
+      "discovered_from": "src/docker-setup.e2e.test.ts",
+      "required": false
+    },
+    {
+      "path": "/nix/store/abc/openclaw.json",
+      "discovered_from": "src/config/config.nix-integration-u3-u5-u9.test.ts",
+      "required": false
+    },
+    {
+      "path": "/oauth/alpha/legacy.json",
+      "discovered_from": "src/channels/plugins/bundled.shape-guard.test.ts",
+      "required": false
+    },
+    {
+      "path": "/oauth/legacy.json",
+      "discovered_from": "src/channels/plugins/bundled.shape-guard.test.ts",
+      "required": false
+    },
+    {
+      "path": "/opt/custom/bin/deploy --region us-east-1 --token sk-proj-ABCDEFGHIJKLMNOP1234567890abcdefghij --output /data/results/deploy-output.json",
+      "discovered_from": "src/agents/tool-display.test.ts",
+      "required": false
+    },
+    {
+      "path": "/opt/openclaw-scaffold/openclaw.json",
+      "discovered_from": "extensions/qa-lab/src/docker-harness.ts",
+      "required": false
+    },
+    {
+      "path": "/plugins-moved/telegram/openclaw.plugin.json",
+      "discovered_from": "src/plugins/plugin-lookup-table.test.ts",
+      "required": false
+    },
+    {
+      "path": "/plugins/browser/openclaw.plugin.json",
+      "discovered_from": "src/plugins/installed-plugin-index-store.test.ts",
+      "required": false
+    },
+    {
+      "path": "/plugins/demo/openclaw.plugin.json",
+      "discovered_from": "src/plugins/installed-plugin-index-store.test.ts",
+      "required": false
+    },
+    {
+      "path": "/plugins/provider-owner/openclaw.plugin.json",
+      "discovered_from": "src/plugins/installed-plugin-index-store.test.ts",
+      "required": false
+    },
+    {
+      "path": "/plugins/runtime-cloud/openclaw.plugin.json",
+      "discovered_from": "src/infra/dotenv.test.ts",
+      "required": false
+    },
+    {
+      "path": "/private/plugin/root/openclaw.plugin.json",
+      "discovered_from": "src/config/redact-snapshot.test.ts",
+      "required": false
+    },
+    {
+      "path": "/repo/extensions/demo-provider/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-install-catalog.test.ts",
+      "required": false
+    },
+    {
+      "path": "/repo/extensions/moonshot/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-install-catalog.test.ts",
+      "required": false
+    },
+    {
+      "path": "/repo/extensions/openai/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-install-catalog.test.ts",
+      "required": false
+    },
+    {
+      "path": "/root/.openclaw/openclaw.json",
+      "discovered_from": "scripts/e2e/parallels/linux-smoke.ts",
+      "required": false
+    },
+    {
+      "path": "/runner/openclaw-pnpm-node-modules/vitest/package.json",
+      "discovered_from": "test/scripts/run-vitest.test.ts",
+      "required": false
+    },
+    {
+      "path": "/source/openclaw.json",
+      "discovered_from": "src/cli/update-cli/update-command.test.ts",
+      "required": false
+    },
+    {
+      "path": "/state/extensions/demo/openclaw.plugin.json",
+      "discovered_from": "src/infra/backup-create.test.ts",
+      "required": false
+    },
+    {
+      "path": "/storage/configuration.json",
+      "discovered_from": "extensions/tlon/src/tlon-api.ts",
+      "required": false
+    },
+    {
+      "path": "/storage/credentials.json",
+      "discovered_from": "extensions/tlon/src/tlon-api.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/.openclaw/openclaw.json",
+      "discovered_from": "src/wizard/setup.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp//${OPENCLAW_BUNDLED_PLUGIN_DIR}/$ext/package.json",
+      "discovered_from": "src/dockerfile.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/anthropic/openclaw.plugin.json",
+      "discovered_from": "src/agents/model-selection-cli.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/auth-profiles.json",
+      "discovered_from": "src/auto-reply/reply/directive-handling.model.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/azure-auth.json",
+      "discovered_from": "src/infra/host-env-security.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/brave/openclaw.plugin.json",
+      "discovered_from": "src/plugins/web-search-providers.runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/config $(touch pwned).json",
+      "discovered_from": "src/gateway/server-methods/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/config.json",
+      "discovered_from": "src/gateway/server-methods/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/copilot-token.json",
+      "discovered_from": "src/plugin-sdk/provider-auth.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/custom-openclaw.json",
+      "discovered_from": "src/cli/config-cli.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/custom-provider-plugin/openclaw.plugin.json",
+      "discovered_from": "src/config/model-alias-defaults.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/evil-azure-auth.json",
+      "discovered_from": "src/infra/host-env-security.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/fake-openclaw.json",
+      "discovered_from": "src/flows/doctor-health-contributions.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/firecrawl/openclaw.plugin.json",
+      "discovered_from": "src/plugins/web-fetch-providers.runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/gateway-config.json",
+      "discovered_from": "extensions/qa-matrix/src/runners/contract/scenarios.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/github-copilot-token-test.json",
+      "discovered_from": "src/agents/github-copilot-token.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/healthcheck-alert/config.json",
+      "discovered_from": "src/agents/sandbox/fs-paths.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/isolated-state/openclaw.json",
+      "discovered_from": "extensions/qa-lab/src/suite-runtime-agent-process.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/leaky-config.json",
+      "discovered_from": "test/release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/noise/openclaw.plugin.json",
+      "discovered_from": "src/plugins/web-fetch-providers.runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openai/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-public-artifacts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-agent-custom/auth-profiles.json",
+      "discovered_from": "src/commands/models/list.status.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-agent-custom/models.json",
+      "discovered_from": "src/commands/models/list.auth-overview.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-agent.json",
+      "discovered_from": "scripts/e2e/lib/live-plugin-tool/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-agent/auth-profiles.json",
+      "discovered_from": "src/commands/models/list.status.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-allowFrom.json",
+      "discovered_from": "src/pairing/allow-from-store-file.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-auth-contract-plugin/plugin.json",
+      "discovered_from": "src/plugin-sdk/test-helpers/agents/auth-profile-runtime-contract.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-bench/config.json",
+      "discovered_from": "test/scripts/bench-gateway-startup.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-cli/openclaw.json",
+      "discovered_from": "src/cli/daemon-cli/status.print.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-clickclack-fixture.json",
+      "discovered_from": "scripts/e2e/lib/release-user-journey/clickclack-fixture.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-codex-agent-after-uninstall.json",
+      "discovered_from": "scripts/e2e/lib/codex-npm-plugin-live/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-codex-agent.json",
+      "discovered_from": "scripts/e2e/lib/codex-npm-plugin-live/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-codex-inspect.json",
+      "discovered_from": "scripts/e2e/lib/codex-on-demand/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-codex-plugin-inspect.json",
+      "discovered_from": "scripts/e2e/lib/codex-npm-plugin-live/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-codex-plugins-list-after-uninstall.json",
+      "discovered_from": "scripts/e2e/lib/codex-npm-plugin-live/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-codex-plugins-list.json",
+      "discovered_from": "scripts/e2e/lib/codex-npm-plugin-live/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-commitments.json",
+      "discovered_from": "src/commands/commitments.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-config.json",
+      "discovered_from": "src/cli/update-cli.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-config/openclaw.json",
+      "discovered_from": "src/commands/doctor-config-flow.include-warning.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-cron-abort-test/jobs.json",
+      "discovered_from": "src/cron/service/timer.regression.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-cron-busy-main-test/jobs.json",
+      "discovered_from": "src/cron/service/timer.regression.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-cron-store.json",
+      "discovered_from": "src/auto-reply/reply/agent-runner.misc.runreplyagent.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-cron.json",
+      "discovered_from": "src/gateway/server-cron-lazy.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-daemon-state/openclaw.json",
+      "discovered_from": "src/cli/daemon-cli.coverage.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-daemon/openclaw.json",
+      "discovered_from": "src/cli/daemon-cli/status.print.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-dev/openclaw.json",
+      "discovered_from": "src/config/logging.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-discord-process-test-sessions.json",
+      "discovered_from": "extensions/discord/src/monitor/message-handler.process.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-doctor-manual/openclaw.json",
+      "discovered_from": "src/cli/daemon-cli/install.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-e2e/cron/jobs.json",
+      "discovered_from": "ui/src/ui/e2e/cron-filters.e2e.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-followup-internal-announce-usage.json",
+      "discovered_from": "src/auto-reply/reply/followup-runner.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-followup-room-event-cli.json",
+      "discovered_from": "src/auto-reply/reply/followup-runner.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-followup-usage-cfg.json",
+      "discovered_from": "src/auto-reply/reply/followup-runner.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-followup-usage-provider.json",
+      "discovered_from": "src/auto-reply/reply/followup-runner.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-followup-usage.json",
+      "discovered_from": "src/auto-reply/reply/followup-runner.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-global-anthropic/openclaw.plugin.json",
+      "discovered_from": "src/plugins/config-state.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-home/openclaw.json",
+      "discovered_from": "src/flows/doctor-core-browser-residue-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-host-state/openclaw.json",
+      "discovered_from": "src/cli/run-main.profile-env.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-installed-plugins.json",
+      "discovered_from": "src/commands/doctor.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-isolated-agent/auth-profiles.json",
+      "discovered_from": "src/commands/models/list.status.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-matrix-create-client-test/storage-meta.json",
+      "discovered_from": "extensions/matrix/src/matrix/client/create-client.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-matrix-create-client-test/storage.json",
+      "discovered_from": "extensions/matrix/src/matrix/client/create-client.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-plugin-inspect.json",
+      "discovered_from": "scripts/e2e/lib/live-plugin-tool/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-plugins-list.json",
+      "discovered_from": "scripts/e2e/lib/codex-on-demand/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-probe-service-state/identity/device.json",
+      "discovered_from": "src/gateway/probe.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-qa/openclaw.json",
+      "discovered_from": "extensions/qa-lab/src/gateway-child.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-release-media-memory-plugins.json",
+      "discovered_from": "test/scripts/release-media-memory-scenario.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-release-upgrade-user-journey-clickclack.json",
+      "discovered_from": "test/scripts/docker-build-helper.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-release-user-journey-clickclack.json",
+      "discovered_from": "test/scripts/docker-build-helper.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-secrets.json",
+      "discovered_from": "src/plugins/tools.optional.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-serialized-cache-test.json",
+      "discovered_from": "src/config/sessions/sessions.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-service/openclaw.json",
+      "discovered_from": "src/commands/doctor-gateway-daemon-flow.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-session-store.json",
+      "discovered_from": "src/agents/agent-command.live-model-switch.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-session-suspension-test/sessions.json",
+      "discovered_from": "src/agents/session-suspension.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-sessions-spawn-test-store.json",
+      "discovered_from": "src/agents/openclaw-tools.subagents.sessions-spawn.test-harness.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-sessions-test.json",
+      "discovered_from": "extensions/discord/src/monitor/monitor.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-sessions.json",
+      "discovered_from": "src/tui/embedded-backend.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-sessions/sessions.json",
+      "discovered_from": "extensions/telegram/src/bot-native-commands.session-meta.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-explicit-model-alias-test.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-persona-merge.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-persona-provider.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-realtime-voice-model-ignored-test.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-same-provider-voice-model-fallback-test.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-supported-voice-model-provider-test.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-voice-model-default-test.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-speech-core-voice-model-fallback-test.json",
+      "discovered_from": "packages/speech-core/src/tts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-stability.json",
+      "discovered_from": "src/cli/gateway-cli/run.option-collisions.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-startup-recovery.json",
+      "discovered_from": "src/gateway/server-startup-config.recovery.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-startup-secrets-test.json",
+      "discovered_from": "src/gateway/server-startup-config.secrets.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-state/credentials/github-copilot.token.json",
+      "discovered_from": "extensions/github-copilot/models.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-state/openclaw.json",
+      "discovered_from": "src/gateway/server-startup-post-attach.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-store.json",
+      "discovered_from": "src/config/sessions/store-writer.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-telegram-group-activation.json",
+      "discovered_from": "extensions/telegram/src/bot.create-telegram-bot.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-telegram-send-tests.json",
+      "discovered_from": "extensions/telegram/src/send.test-harness.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-channel-fixture/openclaw.plugin.json",
+      "discovered_from": "src/plugin-activation-boundary.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-config.json",
+      "discovered_from": "src/security/audit-plugin-readonly-scope.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-cron.json",
+      "discovered_from": "src/plugins/contracts/scheduled-turns.contract.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-cron/jobs.json",
+      "discovered_from": "src/tasks/task-registry.maintenance.issue-60299.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-demo/openclaw.plugin.json",
+      "discovered_from": "src/config/io.write-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-missing-config.json",
+      "discovered_from": "src/cli/gateway-cli/run.option-collisions.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-required-plugin/openclaw.plugin.json",
+      "discovered_from": "src/config/io.write-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-session.json",
+      "discovered_from": "extensions/matrix/src/matrix/monitor/handler.thread-root-media.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-sessions-main.json",
+      "discovered_from": "src/tasks/task-registry.maintenance.issue-60299.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-sessions-{agentId}.json",
+      "discovered_from": "src/commands/sandbox-explain.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-sessions.json",
+      "discovered_from": "src/tasks/task-registry.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-test-strict-plugin/openclaw.plugin.json",
+      "discovered_from": "src/config/io.write-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-tts.json",
+      "discovered_from": "extensions/discord/src/voice/manager.e2e.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw-work-sessions.json",
+      "discovered_from": "src/tui/embedded-backend.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw.json",
+      "discovered_from": "src/config/runtime-snapshot.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/agents/coder/auth-state.json",
+      "discovered_from": "src/commands/models/auth-list.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/agents/codex/sessions/sessions.json",
+      "discovered_from": "src/agents/acp-spawn-parent-stream.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/agents/main/auth-state.json",
+      "discovered_from": "src/commands/models/auth-list.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/agents/main/sessions/sessions.json",
+      "discovered_from": "src/config/sessions.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/agents/{agentId}/sessions/sessions.json",
+      "discovered_from": "src/agents/tools/sessions.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/config.json",
+      "discovered_from": "src/gateway/server-methods/agents-mutate.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/dist/extensions/deepseek/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-discovery.runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/main-sessions.json",
+      "discovered_from": "src/commands/status.summary.redaction.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/main/sessions.json",
+      "discovered_from": "extensions/voice-call/src/response-generator.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/memory/.dreams/short-term-recall.json",
+      "discovered_from": "src/gateway/server-methods/doctor.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/plugins/read-only-shard/catalog.json",
+      "discovered_from": "src/agents/model-catalog.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/qqbot-sessions.json",
+      "discovered_from": "extensions/qqbot/src/engine/gateway/outbound-dispatch.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/sandbox/containers.json",
+      "discovered_from": "src/commands/doctor-sandbox.warns-sandbox-enabled-without-docker.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/session-store.json",
+      "discovered_from": "extensions/telegram/src/bot-message-context.dm-threads.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/sessions.json",
+      "discovered_from": "src/commands/status.summary.redaction.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/synology-chat-sessions.json",
+      "discovered_from": "extensions/synology-chat/src/channel.test-mocks.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/openclaw/telegram-sessions.json",
+      "discovered_from": "extensions/telegram/src/bot-message-dispatch.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/override-azure-auth.json",
+      "discovered_from": "src/infra/host-env-security.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/owner/openclaw.plugin.json",
+      "discovered_from": "src/plugins/provider-public-artifacts.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/plugin/openclaw.plugin.json",
+      "discovered_from": "src/gateway/model-pricing-cache.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/plugins/acme-search/openclaw.plugin.json",
+      "discovered_from": "src/config/config.web-search-provider.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/plugins/brave/openclaw.plugin.json",
+      "discovered_from": "src/config/config.web-search-provider.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/plugins/openai/openclaw.plugin.json",
+      "discovered_from": "src/config/config.model-ref-validation.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/provider-env-plugin/openclaw.plugin.json",
+      "discovered_from": "src/plugins/status.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/secretref-config.json",
+      "discovered_from": "src/commands/gateway-status.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/trusted-azure-auth.json",
+      "discovered_from": "src/infra/host-env-security.test.ts",
+      "required": false
+    },
+    {
+      "path": "/tmp/untrusted-config/openclaw.json",
+      "discovered_from": "src/skills/lifecycle/install.test.ts",
+      "required": false
+    },
+    {
+      "path": "/virtual/.openclaw/openclaw.json",
+      "discovered_from": "src/commands/doctor-config-flow.test-utils.ts",
+      "required": false
+    },
+    {
+      "path": "/virtual/firecrawl/openclaw.plugin.json",
+      "discovered_from": "src/commands/doctor/shared/plugin-tool-allowlist-warnings.test.ts",
+      "required": false
+    },
+    {
+      "path": "/virtual/lobster/openclaw.plugin.json",
+      "discovered_from": "src/commands/doctor/shared/plugin-tool-allowlist-warnings.test.ts",
+      "required": false
+    },
+    {
+      "path": "/wrong/openclaw.json",
+      "discovered_from": "src/cli/update-cli/update-command.test.ts",
+      "required": false
+    },
+    {
+      "path": ":(glob)extensions/*/openclaw.plugin.json",
+      "discovered_from": "scripts/lib/bundled-plugin-source-utils.mjs",
+      "required": false
+    },
+    {
+      "path": "Auth state file: /tmp/openclaw/agents/main/auth-state.json",
+      "discovered_from": "src/commands/models/auth-list.test.ts",
+      "required": false
+    },
+    {
+      "path": "CONFIG_PATH defaults to OPENCLAW_HOME/.openclaw/openclaw.json",
+      "discovered_from": "src/config/config.nix-integration-u3-u5-u9.test.ts",
+      "required": false
+    },
+    {
+      "path": "Cannot open file in headless environment./n/nFile path copied to clipboard: /tmp/openclaw.json",
+      "discovered_from": "ui/src/ui/controllers/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "Check README.md and config.json",
+      "discovered_from": "ui/src/ui/markdown.test.ts",
+      "required": false
+    },
+    {
+      "path": "Config: /Users/steipete/.openclaw-dev/openclaw.json",
+      "discovered_from": "src/commands/health.test.ts",
+      "required": false
+    },
+    {
+      "path": "Config: /tmp/openclaw.json",
+      "discovered_from": "src/commands/status.gateway-connection.test.ts",
+      "required": false
+    },
+    {
+      "path": "Could not find tsconfig.json",
+      "discovered_from": "src/plugin-sdk/api-baseline.ts",
+      "required": false
+    },
+    {
+      "path": "Delete channel tokens/settings from openclaw.json",
+      "discovered_from": "src/commands/configure.wizard.ts",
+      "required": false
+    },
+    {
+      "path": "Dist/Extensions/browser/.OpenClaw-Install-Stage/package.json",
+      "discovered_from": "src/infra/package-dist-inventory.test.ts",
+      "required": false
+    },
+    {
+      "path": "Failed to open config file/n/nFile path: /tmp/from-snapshot.json",
+      "discovered_from": "ui/src/ui/controllers/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "File: /tmp/openclaw.json",
+      "discovered_from": "src/cli/program/config-guard.test.ts",
+      "required": false
+    },
+    {
+      "path": "Gateway service OPENCLAW_GATEWAY_TOKEN does not match gateway.auth.token in openclaw.json",
+      "discovered_from": "src/daemon/service-audit.ts",
+      "required": false
+    },
+    {
+      "path": "Local media path is not under an allowed directory: /home/admin/.openclaw/openclaw.json",
+      "discovered_from": "extensions/feishu/src/docx.test.ts",
+      "required": false
+    },
+    {
+      "path": "OPENCLAW_CONFIG_PATH: /tmp/openclaw/openclaw.json",
+      "discovered_from": "extensions/qa-lab/src/docker-harness.test.ts",
+      "required": false
+    },
+    {
+      "path": "OPENCLAW_CONFIG_PATH=./evil-config.json",
+      "discovered_from": "src/infra/dotenv.test.ts",
+      "required": false
+    },
+    {
+      "path": "Print the JSON schema for openclaw.json",
+      "discovered_from": "src/cli/config-cli.ts",
+      "required": false
+    },
+    {
+      "path": "Raw QA files: https://qa.openclaw.ai/mantis/telegram-desktop/pr-1/run-1/index.json",
+      "discovered_from": "test/scripts/mantis-build-telegram-desktop-proof-evidence.test.ts",
+      "required": false
+    },
+    {
+      "path": "Store: /tmp/openclaw-commitments.json",
+      "discovered_from": "src/commands/commitments.test.ts",
+      "required": false
+    },
+    {
+      "path": "Updated config: /tmp/openclaw-dev/openclaw.json",
+      "discovered_from": "src/config/logging.test.ts",
+      "required": false
+    },
+    {
+      "path": "[openclaw] Invalid package config: /tmp/openclaw/.pnpm/chokidar/package.json",
+      "discovered_from": "src/infra/watch-node.test.ts",
+      "required": false
+    },
+    {
+      "path": "application_default_credentials.json",
+      "discovered_from": "src/llm/env-api-keys.ts",
+      "required": false
+    },
+    {
+      "path": "apps/shared/OpenClawKit/Sources/OpenClawKit/Resources/tool-display.json",
+      "discovered_from": "scripts/tool-display.ts",
+      "required": false
+    },
+    {
+      "path": "archive:auth.json",
+      "discovered_from": "extensions/migrate-hermes/files-and-skills.test.ts",
+      "required": false
+    },
+    {
+      "path": "auth-profiles.json",
+      "discovered_from": "test/test-env.ts",
+      "required": false
+    },
+    {
+      "path": "auth-state.json",
+      "discovered_from": "src/agents/embedded-agent-runner.run-embedded-agent.auth-profile-rotation.e2e.test.ts",
+      "required": false
+    },
+    {
+      "path": "auth.json",
+      "discovered_from": "test/test-env.test.ts",
+      "required": false
+    },
+    {
+      "path": "c://users//support-user//AppData//Local//openclaw//gateway-service.json",
+      "discovered_from": "src/logging/diagnostic-support-export.test.ts",
+      "required": false
+    },
+    {
+      "path": "cache:/tmp/copilot-token.json",
+      "discovered_from": "src/agents/simple-completion-runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "cat ~/.openclaw/credentials/model.json",
+      "discovered_from": "src/infra/exec-auto-review.test.ts",
+      "required": false
+    },
+    {
+      "path": "cat ~/.openclaw/openclaw.json",
+      "discovered_from": "src/agents/embedded-agent-subscribe.handlers.tools.test.ts",
+      "required": false
+    },
+    {
+      "path": "claude_desktop_config.json",
+      "discovered_from": "extensions/migrate-claude/source.ts",
+      "required": false
+    },
+    {
+      "path": "codex-home/auth.json",
+      "discovered_from": "extensions/acpx/src/codex-auth-bridge.ts",
+      "required": false
+    },
+    {
+      "path": "config-health.json",
+      "discovered_from": "src/config/io.observe-recovery.test.ts",
+      "required": false
+    },
+    {
+      "path": "config-link.json",
+      "discovered_from": "src/infra/json-file.test.ts",
+      "required": false
+    },
+    {
+      "path": "config.json",
+      "discovered_from": "src/infra/clawhub.ts",
+      "required": false
+    },
+    {
+      "path": "config/agents.json",
+      "discovered_from": "src/config/io.write-prepare.test.ts",
+      "required": false
+    },
+    {
+      "path": "config/openclaw.json",
+      "discovered_from": "src/cli/update-cli.test.ts",
+      "required": false
+    },
+    {
+      "path": "config/sanitized.json",
+      "discovered_from": "src/logging/diagnostic-support-export.test.ts",
+      "required": false
+    },
+    {
+      "path": "config/shape.json",
+      "discovered_from": "src/logging/diagnostic-support-export.test.ts",
+      "required": false
+    },
+    {
+      "path": "config/tsconfig/oxlint.core.json",
+      "discovered_from": "scripts/check-changed.mjs",
+      "required": false
+    },
+    {
+      "path": "config/tsconfig/oxlint.extensions.json",
+      "discovered_from": "scripts/run-oxlint-shards.mjs",
+      "required": false
+    },
+    {
+      "path": "config/tsconfig/oxlint.json",
+      "discovered_from": "scripts/lib/local-heavy-check-runtime.mjs",
+      "required": false
+    },
+    {
+      "path": "config/tsconfig/oxlint.scripts.json",
+      "discovered_from": "scripts/run-oxlint-shards.mjs",
+      "required": false
+    },
+    {
+      "path": "config: $OPENCLAW_HOME/.openclaw/openclaw.json",
+      "discovered_from": "src/utils.test.ts",
+      "required": false
+    },
+    {
+      "path": "configured-sessions.json",
+      "discovered_from": "src/commands/doctor-session-snapshots.test.ts",
+      "required": false
+    },
+    {
+      "path": "corrupt auth-profiles.json",
+      "discovered_from": "src/commands/models/auth.test.ts",
+      "required": false
+    },
+    {
+      "path": "credential-backup-default.json",
+      "discovered_from": "extensions/qqbot/src/engine/utils/data-paths.test.ts",
+      "required": false
+    },
+    {
+      "path": "credential-backup.json",
+      "discovered_from": "extensions/qqbot/src/engine/config/credential-backup.ts",
+      "required": false
+    },
+    {
+      "path": "credentials-ops.json",
+      "discovered_from": "extensions/matrix/src/matrix/credentials.test.ts",
+      "required": false
+    },
+    {
+      "path": "credentials.json",
+      "discovered_from": "src/agents/model-auth.profiles.test.ts",
+      "required": false
+    },
+    {
+      "path": "credentials/creds.json",
+      "discovered_from": "src/cli/program/config-guard.test.ts",
+      "required": false
+    },
+    {
+      "path": "credentials/telegram-allowFrom.json",
+      "discovered_from": "src/cli/program/config-guard.test.ts",
+      "required": false
+    },
+    {
+      "path": "custom-config.json",
+      "discovered_from": "src/commands/backup.test.ts",
+      "required": false
+    },
+    {
+      "path": "daemon-state/openclaw.json",
+      "discovered_from": "src/cli/update-cli/update-command.test.ts",
+      "required": false
+    },
+    {
+      "path": "deletes the selected channel block from openclaw.json",
+      "discovered_from": "src/commands/configure.channels.test.ts",
+      "required": false
+    },
+    {
+      "path": "device-auth.json",
+      "discovered_from": "src/infra/device-auth-store.ts",
+      "required": false
+    },
+    {
+      "path": "dist-runtime/extensions/demo/openclaw.plugin.json",
+      "discovered_from": "src/infra/run-node.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/Extensions/browser/.OPENCLAW-INSTALL-STAGE-AbC123/node_modules/playwright-core/package.json",
+      "discovered_from": "src/infra/package-dist-inventory.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/brave/.openclaw-install-stage/node_modules/typebox/package.json",
+      "discovered_from": "src/infra/package-dist-inventory.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/browser/.OpenClaw-Install-Stage/package.json",
+      "discovered_from": "test/release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/browser/.openclaw-runtime-deps-copy-AbC123/package.json",
+      "discovered_from": "src/infra/package-dist-inventory.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/discord/.openclaw-runtime-deps-stamp.json",
+      "discovered_from": "test/release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/image-generation-core/openclaw.plugin.json",
+      "discovered_from": "test/scripts/bundled-plugin-build-entries.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/media-understanding-core/openclaw.plugin.json",
+      "discovered_from": "test/scripts/bundled-plugin-build-entries.test.ts",
+      "required": false
+    },
+    {
+      "path": "dist/extensions/node_modules/openclaw/package.json",
+      "discovered_from": "src/infra/run-node.test.ts",
+      "required": false
+    },
+    {
+      "path": "docs/.generated/config-baseline.channel.json",
+      "discovered_from": "src/config/doc-baseline.ts",
+      "required": false
+    },
+    {
+      "path": "docs/.generated/config-baseline.core.json",
+      "discovered_from": "test/release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "docs/.generated/config-baseline.json",
+      "discovered_from": "test/release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "docs/.generated/config-baseline.plugin.json",
+      "discovered_from": "test/openclaw-npm-release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "does not write unauthenticated model providers that would invalidate models.json",
+      "discovered_from": "src/agents/models-config.applies-config-env-vars.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/**/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/*/openclaw.plugin.json",
+      "discovered_from": "src/plugins/bundled-plugin-metadata.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/amazon-bedrock/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/deepinfra/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/discord/tsconfig.json",
+      "discovered_from": "scripts/prepare-extension-package-boundary-artifacts.mjs",
+      "required": false
+    },
+    {
+      "path": "extensions/example/openclaw.plugin.json",
+      "discovered_from": "test/scripts/barnacle-auto-response.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/externalized/openclaw.plugin.json",
+      "discovered_from": "test/scripts/root-dependency-ownership-audit.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/github-copilot/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/google/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/internal/openclaw.plugin.json",
+      "discovered_from": "test/scripts/root-dependency-ownership-audit.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/lmstudio/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/memory-core/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/mistral/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/ollama/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/openai/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/qa-channel/tsconfig.json",
+      "discovered_from": "scripts/prepare-extension-package-boundary-artifacts.mjs",
+      "required": false
+    },
+    {
+      "path": "extensions/slack/tsconfig.json",
+      "discovered_from": "scripts/prepare-extension-package-boundary-artifacts.mjs",
+      "required": false
+    },
+    {
+      "path": "extensions/tsconfig.package-boundary.base.json",
+      "discovered_from": "src/plugins/contracts/extension-package-project-boundaries.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/tsconfig.package-boundary.paths.json",
+      "discovered_from": "src/plugins/contracts/extension-package-project-boundaries.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/voyage/openclaw.plugin.json",
+      "discovered_from": "src/plugins/contracts/plugin-sdk-package-contract-guardrails.test.ts",
+      "required": false
+    },
+    {
+      "path": "extensions/whatsapp/tsconfig.json",
+      "discovered_from": "scripts/prepare-extension-package-boundary-artifacts.mjs",
+      "required": false
+    },
+    {
+      "path": "from runtime-api.js but did not declare it in openclaw.plugin.json",
+      "discovered_from": "src/plugin-sdk/qa-runner-runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "gateway-config.json",
+      "discovered_from": "extensions/qa-matrix/src/runners/contract/scenarios.test.ts",
+      "required": false
+    },
+    {
+      "path": "github-copilot.token.json",
+      "discovered_from": "src/plugin-sdk/provider-auth.ts",
+      "required": false
+    },
+    {
+      "path": "google-calendar: disabled in openclaw.json",
+      "discovered_from": "extensions/codex/src/commands.test.ts",
+      "required": false
+    },
+    {
+      "path": "google-calendar: enabled in openclaw.json",
+      "discovered_from": "extensions/codex/src/commands.test.ts",
+      "required": false
+    },
+    {
+      "path": "hot-upgrade interrupted, appId/secret vanished from\n * openclaw.json",
+      "discovered_from": "extensions/qqbot/src/engine/config/credential-backup.ts",
+      "required": false
+    },
+    {
+      "path": "http://client.example.com/openclaw-mcp.json",
+      "discovered_from": "src/config/schema.test.ts",
+      "required": false
+    },
+    {
+      "path": "https://artifacts.openclaw.ai/mantis/telegram-desktop/pr-1/run-1/index.json",
+      "discovered_from": "test/scripts/mantis-publish-pr-evidence.test.ts",
+      "required": false
+    },
+    {
+      "path": "https://client.example.com/openclaw-mcp.json",
+      "discovered_from": "src/config/schema.test.ts",
+      "required": false
+    },
+    {
+      "path": "https://openclaw.ai/config-from-include.json",
+      "discovered_from": "src/config/io.write-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "https://openclaw.ai/config.json",
+      "discovered_from": "src/config/io.write-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "https://openclaw.ai/protocol.schema.json",
+      "discovered_from": "scripts/protocol-gen.ts",
+      "required": false
+    },
+    {
+      "path": "https://qa.openclaw.ai/mantis/discord/pr-1/run-1/index.json",
+      "discovered_from": "test/scripts/mantis-publish-pr-evidence.test.ts",
+      "required": false
+    },
+    {
+      "path": "https://qa.openclaw.ai/mantis/telegram-desktop/pr-1/run-1/index.json",
+      "discovered_from": "test/scripts/mantis-build-telegram-desktop-proof-evidence.test.ts",
+      "required": false
+    },
+    {
+      "path": "lib/node_modules/openclaw-e2e-fixture/package.json",
+      "discovered_from": "test/scripts/openclaw-e2e-instance.test.ts",
+      "required": false
+    },
+    {
+      "path": "live-token/qa-runtime-token-efficiency-summary.json",
+      "discovered_from": "extensions/qa-lab/src/confidence-report.test.ts",
+      "required": false
+    },
+    {
+      "path": "live/qa-runtime-token-efficiency-summary.json",
+      "discovered_from": "extensions/qa-lab/src/confidence-report.test.ts",
+      "required": false
+    },
+    {
+      "path": "managed-openclaw.json",
+      "discovered_from": "src/security/audit-config-symlink.test.ts",
+      "required": false
+    },
+    {
+      "path": "merges legacy oauth.json into auth-profiles.json",
+      "discovered_from": "src/agents/auth-profiles.ensureauthprofilestore.test.ts",
+      "required": false
+    },
+    {
+      "path": "migrates legacy WhatsApp auth files without touching oauth.json",
+      "discovered_from": "src/commands/doctor-state-migrations.test.ts",
+      "required": false
+    },
+    {
+      "path": "minimal-openclaw.plugin.json",
+      "discovered_from": "src/docs/clawhub-plugin-docs.test.ts",
+      "required": false
+    },
+    {
+      "path": "missing-config.json",
+      "discovered_from": "src/gateway/call.test.ts",
+      "required": false
+    },
+    {
+      "path": "msteams-sso-tokens.json",
+      "discovered_from": "extensions/msteams/src/sso-token-store.test.ts",
+      "required": false
+    },
+    {
+      "path": "native-model-auth.sessions.json",
+      "discovered_from": "src/auto-reply/reply.triggers.trigger-handling.targets-active-session-native-stop.e2e.test.ts",
+      "required": false
+    },
+    {
+      "path": "normalizes mode/apiKey aliases while migrating legacy auth.json",
+      "discovered_from": "src/agents/auth-profiles.ensureauthprofilestore.test.ts",
+      "required": false
+    },
+    {
+      "path": "oauth.json",
+      "discovered_from": "src/infra/state-migrations.test.ts",
+      "required": false
+    },
+    {
+      "path": "oauth_creds.json",
+      "discovered_from": "src/agents/cli-credentials.test.ts",
+      "required": false
+    },
+    {
+      "path": "onboard did not create auth-profiles.json",
+      "discovered_from": "scripts/e2e/lib/npm-onboard-channel-agent/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "onboard did not write openclaw.json",
+      "discovered_from": "scripts/e2e/lib/npm-onboard-channel-agent/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "openclaw sessions --store ./tmp/sessions.json",
+      "discovered_from": "src/cli/program/register.status-health-sessions.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw sessions cleanup --enforce --store ./tmp/sessions.json",
+      "discovered_from": "src/cli/program/register.status-health-sessions.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-clawhub-package.json",
+      "discovered_from": "src/docs/clawhub-plugin-docs.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-discord-approval-native-test.json",
+      "discovered_from": "extensions/discord/src/approval-native.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-extension-memory.json",
+      "discovered_from": "scripts/profile-extension-memory.mjs",
+      "required": false
+    },
+    {
+      "path": "openclaw-missing-config.json",
+      "discovered_from": "src/logging/config.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-provider-timeout.batch.json",
+      "discovered_from": "scripts/e2e/parallels/powershell.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-sessions.json",
+      "discovered_from": "src/test-utils/session-state-cleanup.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-slack-approval-native-test.json",
+      "discovered_from": "extensions/slack/src/approval-native.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-stability-2026-04-22T12-00-00-000Z-123-test.json",
+      "discovered_from": "src/cli/gateway-cli.coverage.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-telegram-action-sessions.json",
+      "discovered_from": "extensions/telegram/src/action-runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw-telegram-approval-native-test.json",
+      "discovered_from": "extensions/telegram/src/approval-native.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw.bundle.json",
+      "discovered_from": "src/plugins/bundle-manifest.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw.config.json",
+      "discovered_from": "src/gateway/server-methods/channels.status.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw.extension.json",
+      "discovered_from": "src/plugins/discovery.test.ts",
+      "required": false
+    },
+    {
+      "path": "openclaw.json",
+      "discovered_from": "openclaw.mjs",
+      "required": true
+    },
+    {
+      "path": "openclaw.plugin.json",
+      "discovered_from": "test/release-check.test.ts",
+      "required": false
+    },
+    {
+      "path": "package missing valid openclaw.plugin.json",
+      "discovered_from": "src/plugins/install.test.ts",
+      "required": false
+    },
+    {
+      "path": "package.json missing openclaw.plugin.json",
+      "discovered_from": "src/cli/plugins-cli.install.test.ts",
+      "required": false
+    },
+    {
+      "path": "package/openclaw.plugin.json",
+      "discovered_from": "scripts/e2e/lib/clawhub-fixture-server.cjs",
+      "required": false
+    },
+    {
+      "path": "packages/plugin-sdk/tsconfig.json",
+      "discovered_from": "scripts/prepare-extension-package-boundary-artifacts.mjs",
+      "required": false
+    },
+    {
+      "path": "plugins-configured-installs.json",
+      "discovered_from": "scripts/e2e/lib/upgrade-survivor/config-recipe.mjs",
+      "required": false
+    },
+    {
+      "path": "plugins-invalid-openclaw-extensions-list.json",
+      "discovered_from": "scripts/e2e/lib/plugins/assertions.mjs",
+      "required": false
+    },
+    {
+      "path": "profile-state-main.json",
+      "discovered_from": "extensions/nostr/doctor-contract-api.test.ts",
+      "required": false
+    },
+    {
+      "path": "qa-runtime-token-efficiency-summary.json",
+      "discovered_from": "extensions/qa-lab/src/cli.runtime.test.ts",
+      "required": false
+    },
+    {
+      "path": "qa/convex-credential-broker/package.json",
+      "discovered_from": "test/scripts/check-dependency-pins.test.ts",
+      "required": false
+    },
+    {
+      "path": "reads the nested security auth selection from ~/.gemini/settings.json",
+      "discovered_from": "extensions/google/oauth.test.ts",
+      "required": false
+    },
+    {
+      "path": "rejects native plugin zip archives without openclaw.plugin.json",
+      "discovered_from": "src/plugins/install.test.ts",
+      "required": false
+    },
+    {
+      "path": "resolves ClawHub auth token from config.json",
+      "discovered_from": "src/infra/clawhub.test.ts",
+      "required": false
+    },
+    {
+      "path": "scripts/tsconfig.json",
+      "discovered_from": "test/scripts/oxlint-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "secretref-user-supplied-credentials-matrix.json",
+      "discovered_from": "scripts/generate-secretref-credential-matrix.ts",
+      "required": false
+    },
+    {
+      "path": "sessions-openclaw-after-codex.json",
+      "discovered_from": "src/agents/command/cli-compaction.test.ts",
+      "required": false
+    },
+    {
+      "path": "source-config.json",
+      "discovered_from": "src/cli/update-cli.test.ts",
+      "required": false
+    },
+    {
+      "path": "stays in sync with docs/reference/secretref-user-supplied-credentials-matrix.json",
+      "discovered_from": "src/secrets/target-registry.docs.test.ts",
+      "required": false
+    },
+    {
+      "path": "test/tsconfig.json",
+      "discovered_from": "test/scripts/oxlint-config.test.ts",
+      "required": false
+    },
+    {
+      "path": "test/tsconfig/tsconfig.core.test.agents.json",
+      "discovered_from": "scripts/profile-tsgo.mjs",
+      "required": false
+    },
+    {
+      "path": "test/tsconfig/tsconfig.core.test.json",
+      "discovered_from": "scripts/profile-tsgo.mjs",
+      "required": false
+    },
+    {
+      "path": "test/tsconfig/tsconfig.core.test.non-agents.json",
+      "discovered_from": "scripts/profile-tsgo.mjs",
+      "required": false
+    },
+    {
+      "path": "test/tsconfig/tsconfig.extensions.test.json",
+      "discovered_from": "scripts/profile-tsgo.mjs",
+      "required": false
+    },
+    {
+      "path": "token/qa-runtime-token-efficiency-summary.json",
+      "discovered_from": "extensions/qa-lab/src/confidence-report.test.ts",
+      "required": false
+    },
+    {
+      "path": "tsc -p tsconfig.json",
+      "discovered_from": "src/cli/plugins-authoring-command.ts",
+      "required": false
+    },
+    {
+      "path": "tsconfig*.json",
+      "discovered_from": "scripts/e2e/parallels/package-artifact.ts",
+      "required": false
+    },
+    {
+      "path": "tsconfig.core.json",
+      "discovered_from": "scripts/profile-tsgo.mjs",
+      "required": false
+    },
+    {
+      "path": "tsconfig.core.test.agents.json",
+      "discovered_from": "scripts/lib/tsgo-sparse-guard.mjs",
+      "required": false
+    },
+    {
+      "path": "tsconfig.core.test.json",
+      "discovered_from": "scripts/lib/tsgo-sparse-guard.mjs",
+      "required": false
+    },
+    {
+      "path": "tsconfig.core.test.non-agents.json",
+      "discovered_from": "scripts/lib/tsgo-sparse-guard.mjs",
+      "required": false
+    },
+    {
+      "path": "tsconfig.extensions.json",
+      "discovered_from": "scripts/profile-tsgo.mjs",
+      "required": false
+    },
+    {
+      "path": "tsconfig.json",
+      "discovered_from": "ui/vite.config.ts",
+      "required": false
+    },
+    {
+      "path": "tsconfig.package-boundary.paths.json",
+      "discovered_from": "src/plugins/contracts/extension-package-project-boundaries.test.ts",
+      "required": false
+    },
+    {
+      "path": "tsconfig.plugin-sdk.dts.json",
+      "discovered_from": "scripts/write-plugin-sdk-entry-dts.ts",
+      "required": false
+    },
+    {
+      "path": "tsconfig.rootdir-canary.json",
+      "discovered_from": "scripts/check-extension-package-tsc-boundary.mjs",
+      "required": false
+    },
+    {
+      "path": "unexpected packaged dist file dist/extensions/browser/.openclaw-install-stage-AbC123/node_modules/playwright-core/package.json",
+      "discovered_from": "src/infra/package-dist-inventory.test.ts",
+      "required": false
+    },
+    {
+      "path": "voice-call/config.json",
+      "discovered_from": "extensions/voice-call/src/utils.test.ts",
+      "required": false
+    },
+    {
+      "path": "writes api_key credentials into auth.json",
+      "discovered_from": "src/agents/agent-auth-json.test.ts",
+      "required": false
+    },
+    {
+      "path": "writes token credentials as api_key into auth.json",
+      "discovered_from": "src/agents/agent-auth-json.test.ts",
+      "required": false
+    },
+    {
+      "path": "wrote stability bundle: /tmp/openclaw-stability.json",
+      "discovered_from": "src/cli/gateway-cli/run.option-collisions.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.codex/skills/custom/telegram-e2e-bot-to-bot/credentials.local.json",
+      "discovered_from": "scripts/e2e/telegram-user-credential.ts",
+      "required": false
+    },
+    {
+      "path": "~/.config/gogcli/credentials.json",
+      "discovered_from": "src/hooks/gmail-setup-utils.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/agents/{agentId}/sessions/sessions.json",
+      "discovered_from": "src/config/sessions/targets.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/config.json",
+      "discovered_from": "src/infra/backup-create.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/credentials/discord-allowFrom.json",
+      "discovered_from": "extensions/discord/src/security-audit.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/credentials/model.json",
+      "discovered_from": "src/infra/exec-auto-review.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/custom.json",
+      "discovered_from": "src/config/config.nix-integration-u3-u5-u9.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/exec-approvals.json",
+      "discovered_from": "src/infra/exec-approvals.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/openclaw.json",
+      "discovered_from": "src/commands/configure.wizard.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/plugin-binding-approvals.json",
+      "discovered_from": "src/plugins/conversation-binding.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/secrets.json",
+      "discovered_from": "src/config/config.secrets-schema.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/.openclaw/state.json",
+      "discovered_from": "test/scripts/dev-tooling-safety.test.ts",
+      "required": false
+    },
+    {
+      "path": "~////AppData////Local////openclaw////gateway-service.json",
+      "discovered_from": "src/logging/diagnostic-support-export.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/Library/Application Support/gogcli/credentials.json",
+      "discovered_from": "src/hooks/gmail-setup-utils.ts",
+      "required": false
+    },
+    {
+      "path": "~/profile/openclaw.json",
+      "discovered_from": "test/scripts/postinstall-bundled-plugins.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/profiles/dev/openclaw.json",
+      "discovered_from": "src/utils.test.ts",
+      "required": false
+    },
+    {
+      "path": "~/voice-call/config.json",
+      "discovered_from": "extensions/voice-call/src/utils.test.ts",
+      "required": false
+    },
+    {
+      "path": "แก้ไข openclaw.json",
+      "discovered_from": "ui/src/i18n/locales/th.ts",
+      "required": false
+    }
+  ]
+}

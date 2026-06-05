@@ -1,0 +1,608 @@
+{
+  "oc_version": "2026.6.1",
+  "source": "oc_extensions",
+  "core_order": [
+    "telegram",
+    "whatsapp",
+    "discord",
+    "irc",
+    "googlechat",
+    "slack",
+    "signal",
+    "imessage"
+  ],
+  "channels": [
+    {
+      "id": "googlechat",
+      "label": "Google Chat",
+      "selection_label": "Google Chat (Chat API)",
+      "blurb": "Google Workspace Chat app with HTTP webhook.",
+      "docs_path": "/channels/googlechat",
+      "order": 55,
+      "config_prefix": "channels.googlechat",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Google Chat? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.googlechat.enabled": true
+          },
+          "summary": "Enable Google Chat messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "label": "Discord",
+      "selection_label": "Discord (Bot API)",
+      "blurb": "very well supported right now.",
+      "docs_path": "/channels/discord",
+      "order": 10000,
+      "config_prefix": "channels.discord",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Do you already have a Discord bot token from the Discord Developer Portal?"
+        },
+        {
+          "kind": "instruction",
+          "text": "very well supported right now."
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.discord.enabled": true
+          },
+          "summary": "Enable Discord messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "imessage",
+      "label": "iMessage",
+      "selection_label": "iMessage (imsg)",
+      "blurb": "Local iMessage/SMS through the imsg bridge, including private API message actions when enabled.",
+      "docs_path": "/channels/imessage",
+      "order": 10000,
+      "config_prefix": "channels.imessage",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up iMessage? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.imessage.enabled": true
+          },
+          "summary": "Enable iMessage messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "irc",
+      "label": "IRC",
+      "selection_label": "IRC (Server + Nick)",
+      "blurb": "classic IRC networks with DM/channel routing and pairing controls.",
+      "docs_path": "/channels/irc",
+      "order": 10000,
+      "config_prefix": "channels.irc",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up IRC? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.irc.enabled": true
+          },
+          "summary": "Enable IRC messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "signal",
+      "label": "Signal",
+      "selection_label": "Signal (signal-cli)",
+      "blurb": "signal-cli linked device; more setup (David Reagans: \"Hop on Discord.\").",
+      "docs_path": "/channels/signal",
+      "order": 10000,
+      "config_prefix": "channels.signal",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Do you already have Signal bridge or account credentials configured for OpenClaw?"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.signal.enabled": true
+          },
+          "summary": "Enable Signal messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "slack",
+      "label": "Slack",
+      "selection_label": "Slack (Socket Mode)",
+      "blurb": "supported (Socket Mode).",
+      "docs_path": "/channels/slack",
+      "order": 10000,
+      "config_prefix": "channels.slack",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Do you already have a Slack app with bot token, app token, and signing secret?"
+        },
+        {
+          "kind": "instruction",
+          "text": "supported (Socket Mode)."
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.slack.enabled": true
+          },
+          "summary": "Enable Slack messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "telegram",
+      "label": "Telegram",
+      "selection_label": "Telegram (Bot API)",
+      "blurb": "simplest way to get started \u2014 register a bot with @BotFather and get going.",
+      "docs_path": "/channels/telegram",
+      "order": 10000,
+      "config_prefix": "channels.telegram",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Do you already have a Telegram bot token from @BotFather?"
+        },
+        {
+          "kind": "instruction",
+          "text": "simplest way to get started \u2014 register a bot with @BotFather and get going."
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.telegram.enabled": true
+          },
+          "summary": "Enable Telegram messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "label": "WhatsApp",
+      "selection_label": "WhatsApp (QR link)",
+      "blurb": "works with your own number; recommend a separate phone + eSIM.",
+      "docs_path": "/channels/whatsapp",
+      "order": 10000,
+      "config_prefix": "channels.whatsapp",
+      "setup_fields": [],
+      "core": true,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Do you already have a WhatsApp account and a phone with WhatsApp enabled for the account?"
+        },
+        {
+          "kind": "instruction",
+          "text": "works with your own number; recommend a separate phone + eSIM. Link WhatsApp from the OpenClaw gateway UI (QR scan) after enabling the channel."
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.whatsapp.enabled": true
+          },
+          "summary": "Enable WhatsApp messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "feishu",
+      "label": "Feishu",
+      "selection_label": "Feishu/Lark (\u98de\u4e66)",
+      "blurb": "\u98de\u4e66/Lark enterprise messaging with doc/wiki/drive tools.",
+      "docs_path": "/channels/feishu",
+      "order": 35,
+      "config_prefix": "channels.feishu",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Feishu? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.feishu.enabled": true
+          },
+          "summary": "Enable Feishu messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "nostr",
+      "label": "Nostr",
+      "selection_label": "Nostr (NIP-04 DMs)",
+      "blurb": "Decentralized protocol; encrypted DMs via NIP-04.",
+      "docs_path": "/channels/nostr",
+      "order": 55,
+      "config_prefix": "channels.nostr",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Nostr? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.nostr.enabled": true
+          },
+          "summary": "Enable Nostr messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "msteams",
+      "label": "Microsoft Teams",
+      "selection_label": "Microsoft Teams (Teams SDK)",
+      "blurb": "Teams SDK; enterprise support.",
+      "docs_path": "/channels/msteams",
+      "order": 60,
+      "config_prefix": "channels.msteams",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Microsoft Teams? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.msteams.enabled": true
+          },
+          "summary": "Enable Microsoft Teams messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "mattermost",
+      "label": "Mattermost",
+      "selection_label": "Mattermost (plugin)",
+      "blurb": "self-hosted Slack-style chat; install the plugin to enable.",
+      "docs_path": "/channels/mattermost",
+      "order": 65,
+      "config_prefix": "channels.mattermost",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Mattermost? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.mattermost.enabled": true
+          },
+          "summary": "Enable Mattermost messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "nextcloud-talk",
+      "label": "Nextcloud Talk",
+      "selection_label": "Nextcloud Talk (self-hosted)",
+      "blurb": "Self-hosted chat via Nextcloud Talk webhook bots.",
+      "docs_path": "/channels/nextcloud-talk",
+      "order": 65,
+      "config_prefix": "channels.nextcloud-talk",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Nextcloud Talk? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.nextcloud-talk.enabled": true
+          },
+          "summary": "Enable Nextcloud Talk messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "matrix",
+      "label": "Matrix",
+      "selection_label": "Matrix (plugin)",
+      "blurb": "open protocol; install the plugin to enable.",
+      "docs_path": "/channels/matrix",
+      "order": 70,
+      "config_prefix": "channels.matrix",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Matrix? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.matrix.enabled": true
+          },
+          "summary": "Enable Matrix messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "line",
+      "label": "LINE",
+      "selection_label": "LINE (Messaging API)",
+      "blurb": "LINE Messaging API webhook bot.",
+      "docs_path": "/channels/line",
+      "order": 75,
+      "config_prefix": "channels.line",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up LINE? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.line.enabled": true
+          },
+          "summary": "Enable LINE messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "zalo",
+      "label": "Zalo",
+      "selection_label": "Zalo (Bot API)",
+      "blurb": "Vietnam-focused messaging platform with Bot API.",
+      "docs_path": "/channels/zalo",
+      "order": 80,
+      "config_prefix": "channels.zalo",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Zalo? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.zalo.enabled": true
+          },
+          "summary": "Enable Zalo messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "clickclack",
+      "label": "ClickClack",
+      "selection_label": "ClickClack",
+      "blurb": "self-hosted chat via first-class ClickClack bot tokens.",
+      "docs_path": "/channels/clickclack",
+      "order": 85,
+      "config_prefix": "channels.clickclack",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up ClickClack? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.clickclack.enabled": true
+          },
+          "summary": "Enable ClickClack messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "zalouser",
+      "label": "Zalo Personal",
+      "selection_label": "Zalo (Personal Account)",
+      "blurb": "Zalo personal account via QR code login.",
+      "docs_path": "/channels/zalouser",
+      "order": 85,
+      "config_prefix": "channels.zalouser",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Zalo Personal? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.zalouser.enabled": true
+          },
+          "summary": "Enable Zalo Personal messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "sms",
+      "label": "SMS",
+      "selection_label": "SMS (Twilio)",
+      "blurb": "Twilio-backed SMS with inbound webhooks and outbound replies.",
+      "docs_path": "/channels/sms",
+      "order": 88,
+      "config_prefix": "channels.sms",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up SMS? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.sms.enabled": true
+          },
+          "summary": "Enable SMS messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "synology-chat",
+      "label": "Synology Chat",
+      "selection_label": "Synology Chat (Webhook)",
+      "blurb": "Connect your Synology NAS Chat to OpenClaw with full agent capabilities.",
+      "docs_path": "/channels/synology-chat",
+      "order": 90,
+      "config_prefix": "channels.synology-chat",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Synology Chat? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.synology-chat.enabled": true
+          },
+          "summary": "Enable Synology Chat messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "tlon",
+      "label": "Tlon",
+      "selection_label": "Tlon (Urbit)",
+      "blurb": "decentralized messaging on Urbit; install the plugin to enable.",
+      "docs_path": "/channels/tlon",
+      "order": 90,
+      "config_prefix": "channels.tlon",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Tlon? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.tlon.enabled": true
+          },
+          "summary": "Enable Tlon messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "qa-channel",
+      "label": "QA Channel",
+      "selection_label": "QA Channel (Synthetic)",
+      "blurb": "Synthetic Slack-class transport for automated OpenClaw QA scenarios.",
+      "docs_path": "/channels/qa-channel",
+      "order": 999,
+      "config_prefix": "channels.qa-channel",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up QA Channel? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.qa-channel.enabled": true
+          },
+          "summary": "Enable QA Channel messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "qqbot",
+      "label": "QQ Bot",
+      "selection_label": "QQ Bot (Official API)",
+      "blurb": "connect to QQ via official QQ Bot API with group chat and direct message support.",
+      "docs_path": "/channels/qqbot",
+      "order": 10000,
+      "config_prefix": "channels.qqbot",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up QQ Bot? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.qqbot.enabled": true
+          },
+          "summary": "Enable QQ Bot messaging in your OpenClaw config."
+        }
+      ]
+    },
+    {
+      "id": "twitch",
+      "label": "Twitch",
+      "selection_label": "Twitch (Chat)",
+      "blurb": "Twitch chat integration",
+      "docs_path": "/channels/twitch",
+      "order": 10000,
+      "config_prefix": "channels.twitch",
+      "setup_fields": [],
+      "core": false,
+      "setup_steps": [
+        {
+          "kind": "confirm",
+          "prompt": "Are you ready to set up Twitch? (You'll need any credentials OpenClaw requires.)"
+        },
+        {
+          "kind": "patch",
+          "config_patch": {
+            "channels.twitch.enabled": true
+          },
+          "summary": "Enable Twitch messaging in your OpenClaw config."
+        }
+      ]
+    }
+  ]
+}

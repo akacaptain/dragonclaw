@@ -1,0 +1,41 @@
+---
+description: DragonClaw product architecture and hard constraints
+alwaysApply: true
+---
+
+# DragonClaw — agent rules
+
+This is the **first** public DragonClaw repo. Prototype code lives at `/Users/captain/dragonclaw_project` — read-only reference; never copy wholesale.
+
+## Read first
+
+- `SPEC.md` — source of truth; do not ship product code until Captain approves it
+- `HANDOFF.md` — session context and decisions
+- `docs/prototype.md` — Tier A/B/C salvage
+
+## Product thesis
+
+Local AI operator for OpenClaw: install, configure, troubleshoot. Unlike remote chat, **cannot apply invalid config** (`openclaw config validate` before every write).
+
+## Hybrid architecture (required)
+
+- **Fixed UI flows** — menus and onboarding frames; not a blank prompt
+- **Orchestrate OC CLI** — use OpenClaw for wizards, linking, doctor; do not reimplement 23 channels in Python
+- **Step kinds:** `dc_menu`, `oc_json`, `oc_interactive`, `validate_probe`
+- **Auto-apply** routine setup after validate / OC success — no per-step OK?
+- **Probe-based success** — linked channel, working model, healthy gateway; never `enabled: true` alone
+
+## Hard prohibitions
+
+- No default full-file `openclaw.json` rewrites
+- Do not forbid `openclaw doctor` in planner — use it as a tool
+- Do not port prototype `channel_setup`, `runtime_cli` monolith, or permutation training
+- Do not treat mined catalogs as executable Python wizard specs
+
+## Implementation order
+
+Follow `SPEC.md` phases. Phase 1 = kernel ports from Tier A only. Explicit port tasks — no drive-by refactors.
+
+## Planner default
+
+Base instruct + tools first. LoRA only if evals require it; train on tool choice, not config permutations.

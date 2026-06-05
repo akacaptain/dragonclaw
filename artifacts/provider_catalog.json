@@ -1,0 +1,1015 @@
+{
+  "oc_version": "2026.6.1",
+  "source": "oc_extensions",
+  "menu_primary_order": [
+    "openrouter",
+    "groq",
+    "anthropic",
+    "openai",
+    "google"
+  ],
+  "providers": [
+    {
+      "id": "openrouter",
+      "label": "OpenRouter",
+      "extension_dir": "openrouter",
+      "menu_primary": true,
+      "auth_choices": [
+        {
+          "choice_id": "openrouter-api-key",
+          "method": "api-key",
+          "cli_flag": "--openrouter-api-key",
+          "option_key": "openrouterApiKey",
+          "env_var": null,
+          "label": "OpenRouter API key"
+        }
+      ],
+      "default_model_ref": "openrouter/auto"
+    },
+    {
+      "id": "groq",
+      "label": "Groq",
+      "extension_dir": "groq",
+      "menu_primary": true,
+      "default_model_ref": "groq/llama-3.3-70b-versatile"
+    },
+    {
+      "id": "anthropic",
+      "label": "Anthropic",
+      "extension_dir": "anthropic",
+      "menu_primary": true,
+      "auth_choices": [
+        {
+          "choice_id": "anthropic-cli",
+          "method": "cli",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "Anthropic Claude CLI"
+        },
+        {
+          "choice_id": "setup-token",
+          "method": "setup-token",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "Anthropic setup-token"
+        },
+        {
+          "choice_id": "apiKey",
+          "method": "api-key",
+          "cli_flag": "--anthropic-api-key",
+          "option_key": "anthropicApiKey",
+          "env_var": null,
+          "label": "Anthropic API key"
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "label": "OpenAI",
+      "extension_dir": "openai",
+      "menu_primary": true,
+      "auth_choices": [
+        {
+          "choice_id": "openai",
+          "method": "oauth",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "ChatGPT Login"
+        },
+        {
+          "choice_id": "openai-device-code",
+          "method": "device-code",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "ChatGPT Device Pairing"
+        },
+        {
+          "choice_id": "openai-api-key",
+          "method": "api-key",
+          "cli_flag": "--openai-api-key",
+          "option_key": "openaiApiKey",
+          "env_var": null,
+          "label": "OpenAI API Key"
+        }
+      ]
+    },
+    {
+      "id": "google",
+      "label": "Google",
+      "extension_dir": "google",
+      "menu_primary": true,
+      "auth_choices": [
+        {
+          "choice_id": "gemini-api-key",
+          "method": "api-key",
+          "cli_flag": "--gemini-api-key",
+          "option_key": "geminiApiKey",
+          "env_var": null,
+          "label": "Google Gemini API key"
+        },
+        {
+          "choice_id": "google-gemini-cli",
+          "method": "oauth",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "Gemini CLI OAuth"
+        }
+      ]
+    },
+    {
+      "id": "alibaba",
+      "label": "Alibaba Model Studio video",
+      "extension_dir": "alibaba",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "alibaba-model-studio-api-key",
+          "method": "api-key",
+          "cli_flag": "--alibaba-model-studio-api-key",
+          "option_key": "alibabaModelStudioApiKey",
+          "env_var": null,
+          "label": "Alibaba Model Studio API key"
+        }
+      ]
+    },
+    {
+      "id": "amazon-bedrock",
+      "label": "Amazon Bedrock provider plugin with model discovery, embeddings, and guardrail support.",
+      "extension_dir": "amazon-bedrock",
+      "menu_primary": false
+    },
+    {
+      "id": "amazon-bedrock-mantle",
+      "label": "Amazon Bedrock Mantle provider plugin for OpenAI-compatible model routing.",
+      "extension_dir": "amazon-bedrock-mantle",
+      "menu_primary": false
+    },
+    {
+      "id": "anthropic-vertex",
+      "label": "Anthropic Vertex provider plugin for Claude models on Google Vertex AI.",
+      "extension_dir": "anthropic-vertex",
+      "menu_primary": false
+    },
+    {
+      "id": "arcee",
+      "label": "Arcee",
+      "extension_dir": "arcee",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "arceeai-api-key",
+          "method": "arcee-platform",
+          "cli_flag": "--arceeai-api-key",
+          "option_key": "arceeaiApiKey",
+          "env_var": null,
+          "label": "Arcee AI API key"
+        },
+        {
+          "choice_id": "arceeai-openrouter",
+          "method": "openrouter",
+          "cli_flag": "--openrouter-api-key",
+          "option_key": "openrouterApiKey",
+          "env_var": null,
+          "label": "OpenRouter API key"
+        }
+      ],
+      "default_model_ref": "arcee/trinity-large-thinking"
+    },
+    {
+      "id": "byteplus",
+      "label": "BytePlus",
+      "extension_dir": "byteplus",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "byteplus-api-key",
+          "method": "api-key",
+          "cli_flag": "--byteplus-api-key",
+          "option_key": "byteplusApiKey",
+          "env_var": null,
+          "label": "BytePlus API key"
+        }
+      ]
+    },
+    {
+      "id": "cerebras",
+      "label": "Cerebras",
+      "extension_dir": "cerebras",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "cerebras-api-key",
+          "method": "api-key",
+          "cli_flag": "--cerebras-api-key",
+          "option_key": "cerebrasApiKey",
+          "env_var": null,
+          "label": "Cerebras API key"
+        }
+      ],
+      "default_model_ref": "cerebras/zai-glm-4.7"
+    },
+    {
+      "id": "chutes",
+      "label": "Chutes.ai",
+      "extension_dir": "chutes",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "chutes",
+          "method": "oauth",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "Chutes (OAuth)"
+        },
+        {
+          "choice_id": "chutes-api-key",
+          "method": "api-key",
+          "cli_flag": "--chutes-api-key",
+          "option_key": "chutesApiKey",
+          "env_var": null,
+          "label": "Chutes API key"
+        }
+      ]
+    },
+    {
+      "id": "cloudflare-ai-gateway",
+      "label": "Cloudflare AI Gateway",
+      "extension_dir": "cloudflare-ai-gateway",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "cloudflare-ai-gateway-api-key",
+          "method": "api-key",
+          "cli_flag": "--cloudflare-ai-gateway-api-key",
+          "option_key": "cloudflareAiGatewayApiKey",
+          "env_var": null,
+          "label": "Cloudflare AI Gateway"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "label": "Codex app-server harness and model provider plugin with a Codex-managed GPT catalog.",
+      "extension_dir": "codex",
+      "menu_primary": false
+    },
+    {
+      "id": "comfy",
+      "label": "ComfyUI",
+      "extension_dir": "comfy",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "comfy-cloud-api-key",
+          "method": "cloud-api-key",
+          "cli_flag": "--comfy-api-key",
+          "option_key": "comfyApiKey",
+          "env_var": null,
+          "label": "Comfy Cloud API key"
+        }
+      ]
+    },
+    {
+      "id": "deepgram",
+      "label": "Deepgram media-understanding provider",
+      "extension_dir": "deepgram",
+      "menu_primary": false
+    },
+    {
+      "id": "deepinfra",
+      "label": "DeepInfra",
+      "extension_dir": "deepinfra",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "deepinfra-api-key",
+          "method": "api-key",
+          "cli_flag": "--deepinfra-api-key",
+          "option_key": "deepinfraApiKey",
+          "env_var": null,
+          "label": "DeepInfra API key"
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "label": "DeepSeek",
+      "extension_dir": "deepseek",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "deepseek-api-key",
+          "method": "api-key",
+          "cli_flag": "--deepseek-api-key",
+          "option_key": "deepseekApiKey",
+          "env_var": null,
+          "label": "DeepSeek API key"
+        }
+      ],
+      "default_model_ref": "deepseek/deepseek-v4-flash"
+    },
+    {
+      "id": "fal",
+      "label": "fal",
+      "extension_dir": "fal",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "fal-api-key",
+          "method": "api-key",
+          "cli_flag": "--fal-api-key",
+          "option_key": "falApiKey",
+          "env_var": null,
+          "label": "fal API key"
+        }
+      ]
+    },
+    {
+      "id": "fireworks",
+      "label": "Fireworks",
+      "extension_dir": "fireworks",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "fireworks-api-key",
+          "method": "api-key",
+          "cli_flag": "--fireworks-api-key",
+          "option_key": "fireworksApiKey",
+          "env_var": null,
+          "label": "Fireworks API key"
+        }
+      ]
+    },
+    {
+      "id": "github-copilot",
+      "label": "GitHub Copilot",
+      "extension_dir": "github-copilot",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "github-copilot",
+          "method": "device",
+          "cli_flag": "--github-copilot-token",
+          "option_key": "githubCopilotToken",
+          "env_var": null,
+          "label": "GitHub Copilot"
+        }
+      ]
+    },
+    {
+      "id": "gmi",
+      "label": "GMI Cloud",
+      "extension_dir": "gmi",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "gmi-api-key",
+          "method": "api-key",
+          "cli_flag": "--gmi-api-key",
+          "option_key": "gmiApiKey",
+          "env_var": null,
+          "label": "GMI Cloud API key"
+        }
+      ]
+    },
+    {
+      "id": "huggingface",
+      "label": "Hugging Face",
+      "extension_dir": "huggingface",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "huggingface-api-key",
+          "method": "api-key",
+          "cli_flag": "--huggingface-api-key",
+          "option_key": "huggingfaceApiKey",
+          "env_var": null,
+          "label": "Hugging Face API key"
+        }
+      ],
+      "default_model_ref": "huggingface/deepseek-ai/DeepSeek-R1"
+    },
+    {
+      "id": "kilocode",
+      "label": "Kilo Gateway",
+      "extension_dir": "kilocode",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "kilocode-api-key",
+          "method": "api-key",
+          "cli_flag": "--kilocode-api-key",
+          "option_key": "kilocodeApiKey",
+          "env_var": null,
+          "label": "Kilo Gateway API key"
+        }
+      ]
+    },
+    {
+      "id": "kimi-coding",
+      "label": "Kimi",
+      "extension_dir": "kimi-coding",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "kimi-code-api-key",
+          "method": "api-key",
+          "cli_flag": "--kimi-code-api-key",
+          "option_key": "kimiCodeApiKey",
+          "env_var": null,
+          "label": "Kimi Code API key (subscription)"
+        }
+      ]
+    },
+    {
+      "id": "litellm",
+      "label": "LiteLLM",
+      "extension_dir": "litellm",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "litellm-api-key",
+          "method": "api-key",
+          "cli_flag": "--litellm-api-key",
+          "option_key": "litellmApiKey",
+          "env_var": null,
+          "label": "LiteLLM API key"
+        }
+      ]
+    },
+    {
+      "id": "lmstudio",
+      "label": "LM Studio",
+      "extension_dir": "lmstudio",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "lmstudio",
+          "method": "custom",
+          "cli_flag": "--lmstudio-api-key",
+          "option_key": "lmstudioApiKey",
+          "env_var": null,
+          "label": "LM Studio"
+        }
+      ]
+    },
+    {
+      "id": "minimax",
+      "label": "MiniMax provider and OAuth",
+      "extension_dir": "minimax",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "minimax-global-oauth",
+          "method": "oauth",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "MiniMax OAuth (Global)"
+        },
+        {
+          "choice_id": "minimax-global-api",
+          "method": "api-global",
+          "cli_flag": "--minimax-api-key",
+          "option_key": "minimaxApiKey",
+          "env_var": null,
+          "label": "MiniMax API key (Global)"
+        },
+        {
+          "choice_id": "minimax-cn-oauth",
+          "method": "oauth-cn",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "MiniMax OAuth (CN)"
+        },
+        {
+          "choice_id": "minimax-cn-api",
+          "method": "api-cn",
+          "cli_flag": "--minimax-api-key",
+          "option_key": "minimaxApiKey",
+          "env_var": null,
+          "label": "MiniMax API key (CN)"
+        }
+      ]
+    },
+    {
+      "id": "mistral",
+      "label": "Mistral",
+      "extension_dir": "mistral",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "mistral-api-key",
+          "method": "api-key",
+          "cli_flag": "--mistral-api-key",
+          "option_key": "mistralApiKey",
+          "env_var": null,
+          "label": "Mistral API key"
+        }
+      ]
+    },
+    {
+      "id": "moonshot",
+      "label": "Moonshot",
+      "extension_dir": "moonshot",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "moonshot-api-key",
+          "method": "api-key",
+          "cli_flag": "--moonshot-api-key",
+          "option_key": "moonshotApiKey",
+          "env_var": null,
+          "label": "Moonshot API key (.ai)"
+        },
+        {
+          "choice_id": "moonshot-api-key-cn",
+          "method": "api-key-cn",
+          "cli_flag": "--moonshot-api-key",
+          "option_key": "moonshotApiKey",
+          "env_var": null,
+          "label": "Moonshot API key (.cn)"
+        }
+      ]
+    },
+    {
+      "id": "novita",
+      "label": "NovitaAI",
+      "extension_dir": "novita",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "novita-api-key",
+          "method": "api-key",
+          "cli_flag": "--novita-api-key",
+          "option_key": "novitaApiKey",
+          "env_var": null,
+          "label": "NovitaAI API key"
+        }
+      ]
+    },
+    {
+      "id": "nvidia",
+      "label": "NVIDIA",
+      "extension_dir": "nvidia",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "nvidia-api-key",
+          "method": "api-key",
+          "cli_flag": "--nvidia-api-key",
+          "option_key": "nvidiaApiKey",
+          "env_var": null,
+          "label": "NVIDIA API key"
+        }
+      ]
+    },
+    {
+      "id": "ollama",
+      "label": "Ollama",
+      "extension_dir": "ollama",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "ollama",
+          "method": "local",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "Ollama"
+        },
+        {
+          "choice_id": "ollama-cloud",
+          "method": "api-key",
+          "cli_flag": "--ollama-cloud-api-key",
+          "option_key": "ollamaCloudApiKey",
+          "env_var": null,
+          "label": "Ollama Cloud"
+        }
+      ]
+    },
+    {
+      "id": "opencode",
+      "label": "OpenCode Zen",
+      "extension_dir": "opencode",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "opencode-zen",
+          "method": "api-key",
+          "cli_flag": "--opencode-zen-api-key",
+          "option_key": "opencodeZenApiKey",
+          "env_var": null,
+          "label": "OpenCode Zen catalog"
+        }
+      ],
+      "default_model_ref": "opencode/claude-opus-4-6"
+    },
+    {
+      "id": "opencode-go",
+      "label": "OpenCode Go",
+      "extension_dir": "opencode-go",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "opencode-go",
+          "method": "api-key",
+          "cli_flag": "--opencode-go-api-key",
+          "option_key": "opencodeGoApiKey",
+          "env_var": null,
+          "label": "OpenCode Go catalog"
+        }
+      ],
+      "default_model_ref": "opencode-go/kimi-k2.6"
+    },
+    {
+      "id": "pixverse",
+      "label": "PixVerse video generation provider plugin.",
+      "extension_dir": "pixverse",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "pixverse-api-key",
+          "method": "api-key",
+          "cli_flag": "--pixverse-api-key",
+          "option_key": "pixverseApiKey",
+          "env_var": null,
+          "label": "PixVerse API key"
+        }
+      ]
+    },
+    {
+      "id": "qianfan",
+      "label": "Qianfan",
+      "extension_dir": "qianfan",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "qianfan-api-key",
+          "method": "api-key",
+          "cli_flag": "--qianfan-api-key",
+          "option_key": "qianfanApiKey",
+          "env_var": null,
+          "label": "Qianfan API key"
+        }
+      ]
+    },
+    {
+      "id": "qwen",
+      "label": "Qwen Cloud",
+      "extension_dir": "qwen",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "qwen-standard-api-key-cn",
+          "method": "standard-api-key-cn",
+          "cli_flag": "--modelstudio-standard-api-key-cn",
+          "option_key": "modelstudioStandardApiKeyCn",
+          "env_var": null,
+          "label": "Standard API Key for China (pay-as-you-go)"
+        },
+        {
+          "choice_id": "qwen-standard-api-key",
+          "method": "standard-api-key",
+          "cli_flag": "--modelstudio-standard-api-key",
+          "option_key": "modelstudioStandardApiKey",
+          "env_var": null,
+          "label": "Standard API Key for Global/Intl (pay-as-you-go)"
+        },
+        {
+          "choice_id": "qwen-api-key-cn",
+          "method": "api-key-cn",
+          "cli_flag": "--modelstudio-api-key-cn",
+          "option_key": "modelstudioApiKeyCn",
+          "env_var": null,
+          "label": "Coding Plan API Key for China (subscription)"
+        },
+        {
+          "choice_id": "qwen-api-key",
+          "method": "api-key",
+          "cli_flag": "--modelstudio-api-key",
+          "option_key": "modelstudioApiKey",
+          "env_var": null,
+          "label": "Coding Plan API Key for Global/Intl (subscription)"
+        },
+        {
+          "choice_id": "qwen-oauth",
+          "method": "api-key",
+          "cli_flag": "--qwen-oauth-token",
+          "option_key": "qwenOauthToken",
+          "env_var": null,
+          "label": "Qwen OAuth"
+        }
+      ]
+    },
+    {
+      "id": "runway",
+      "label": "Runway video",
+      "extension_dir": "runway",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "runway-api-key",
+          "method": "api-key",
+          "cli_flag": "--runway-api-key",
+          "option_key": "runwayApiKey",
+          "env_var": null,
+          "label": "Runway API key"
+        }
+      ]
+    },
+    {
+      "id": "senseaudio",
+      "label": "SenseAudio media-understanding provider",
+      "extension_dir": "senseaudio",
+      "menu_primary": false
+    },
+    {
+      "id": "sglang",
+      "label": "SGLang",
+      "extension_dir": "sglang",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "sglang",
+          "method": "custom",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "SGLang"
+        }
+      ]
+    },
+    {
+      "id": "stepfun",
+      "label": "StepFun",
+      "extension_dir": "stepfun",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "stepfun-standard-api-key-cn",
+          "method": "standard-api-key-cn",
+          "cli_flag": "--stepfun-api-key",
+          "option_key": "stepfunApiKey",
+          "env_var": null,
+          "label": "StepFun Standard API key (China)"
+        },
+        {
+          "choice_id": "stepfun-standard-api-key-intl",
+          "method": "standard-api-key-intl",
+          "cli_flag": "--stepfun-api-key",
+          "option_key": "stepfunApiKey",
+          "env_var": null,
+          "label": "StepFun Standard API key (Global/Intl)"
+        },
+        {
+          "choice_id": "stepfun-plan-api-key-cn",
+          "method": "plan-api-key-cn",
+          "cli_flag": "--stepfun-api-key",
+          "option_key": "stepfunApiKey",
+          "env_var": null,
+          "label": "StepFun Step Plan API key (China)"
+        },
+        {
+          "choice_id": "stepfun-plan-api-key-intl",
+          "method": "plan-api-key-intl",
+          "cli_flag": "--stepfun-api-key",
+          "option_key": "stepfunApiKey",
+          "env_var": null,
+          "label": "StepFun Step Plan API key (Global/Intl)"
+        }
+      ]
+    },
+    {
+      "id": "synthetic",
+      "label": "Synthetic",
+      "extension_dir": "synthetic",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "synthetic-api-key",
+          "method": "api-key",
+          "cli_flag": "--synthetic-api-key",
+          "option_key": "syntheticApiKey",
+          "env_var": null,
+          "label": "Synthetic API key"
+        }
+      ]
+    },
+    {
+      "id": "tencent",
+      "label": "Tencent Cloud provider plugin (TokenHub + Token Plan)",
+      "extension_dir": "tencent",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "tokenhub-api-key",
+          "method": "api-key",
+          "cli_flag": "--tokenhub-api-key",
+          "option_key": "tokenhubApiKey",
+          "env_var": null,
+          "label": "Tencent TokenHub"
+        }
+      ]
+    },
+    {
+      "id": "together",
+      "label": "Together",
+      "extension_dir": "together",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "together-api-key",
+          "method": "api-key",
+          "cli_flag": "--together-api-key",
+          "option_key": "togetherApiKey",
+          "env_var": null,
+          "label": "Together AI API key"
+        }
+      ],
+      "default_model_ref": "together/meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    },
+    {
+      "id": "venice",
+      "label": "Venice",
+      "extension_dir": "venice",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "venice-api-key",
+          "method": "api-key",
+          "cli_flag": "--venice-api-key",
+          "option_key": "veniceApiKey",
+          "env_var": null,
+          "label": "Venice AI API key"
+        }
+      ]
+    },
+    {
+      "id": "vercel-ai-gateway",
+      "label": "Vercel AI Gateway",
+      "extension_dir": "vercel-ai-gateway",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "ai-gateway-api-key",
+          "method": "api-key",
+          "cli_flag": "--ai-gateway-api-key",
+          "option_key": "aiGatewayApiKey",
+          "env_var": null,
+          "label": "Vercel AI Gateway API key"
+        }
+      ],
+      "default_model_ref": "vercel-ai-gateway/anthropic/claude-opus-4.6"
+    },
+    {
+      "id": "vllm",
+      "label": "vLLM",
+      "extension_dir": "vllm",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "vllm",
+          "method": "custom",
+          "cli_flag": null,
+          "option_key": null,
+          "env_var": null,
+          "label": "vLLM"
+        }
+      ]
+    },
+    {
+      "id": "volcengine",
+      "label": "Volcengine",
+      "extension_dir": "volcengine",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "volcengine-api-key",
+          "method": "api-key",
+          "cli_flag": "--volcengine-api-key",
+          "option_key": "volcengineApiKey",
+          "env_var": null,
+          "label": "Volcano Engine API key"
+        }
+      ]
+    },
+    {
+      "id": "voyage",
+      "label": "Voyage embedding",
+      "extension_dir": "voyage",
+      "menu_primary": false
+    },
+    {
+      "id": "vydra",
+      "label": "Vydra media",
+      "extension_dir": "vydra",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "vydra-api-key",
+          "method": "api-key",
+          "cli_flag": "--vydra-api-key",
+          "option_key": "vydraApiKey",
+          "env_var": null,
+          "label": "Vydra API key"
+        }
+      ]
+    },
+    {
+      "id": "xiaomi",
+      "label": "Xiaomi",
+      "extension_dir": "xiaomi",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "xiaomi-api-key",
+          "method": "api-key",
+          "cli_flag": "--xiaomi-api-key",
+          "option_key": "xiaomiApiKey",
+          "env_var": null,
+          "label": "Xiaomi API key (Pay-as-you-go)"
+        },
+        {
+          "choice_id": "xiaomi-token-plan-ams",
+          "method": "token-plan-ams",
+          "cli_flag": "--xiaomi-token-plan-api-key",
+          "option_key": "xiaomiTokenPlanApiKey",
+          "env_var": null,
+          "label": "Xiaomi Token Plan (Europe)"
+        },
+        {
+          "choice_id": "xiaomi-token-plan-cn",
+          "method": "token-plan-cn",
+          "cli_flag": "--xiaomi-token-plan-api-key",
+          "option_key": "xiaomiTokenPlanApiKey",
+          "env_var": null,
+          "label": "Xiaomi Token Plan (China)"
+        },
+        {
+          "choice_id": "xiaomi-token-plan-sgp",
+          "method": "token-plan-sgp",
+          "cli_flag": "--xiaomi-token-plan-api-key",
+          "option_key": "xiaomiTokenPlanApiKey",
+          "env_var": null,
+          "label": "Xiaomi Token Plan (Singapore)"
+        }
+      ]
+    },
+    {
+      "id": "zai",
+      "label": "Z.AI",
+      "extension_dir": "zai",
+      "menu_primary": false,
+      "auth_choices": [
+        {
+          "choice_id": "zai-api-key",
+          "method": "api-key",
+          "cli_flag": "--zai-api-key",
+          "option_key": "zaiApiKey",
+          "env_var": null,
+          "label": "Z.AI API key"
+        },
+        {
+          "choice_id": "zai-coding-global",
+          "method": "coding-global",
+          "cli_flag": "--zai-api-key",
+          "option_key": "zaiApiKey",
+          "env_var": null,
+          "label": "Coding-Plan-Global"
+        },
+        {
+          "choice_id": "zai-coding-cn",
+          "method": "coding-cn",
+          "cli_flag": "--zai-api-key",
+          "option_key": "zaiApiKey",
+          "env_var": null,
+          "label": "Coding-Plan-CN"
+        },
+        {
+          "choice_id": "zai-global",
+          "method": "global",
+          "cli_flag": "--zai-api-key",
+          "option_key": "zaiApiKey",
+          "env_var": null,
+          "label": "Global"
+        },
+        {
+          "choice_id": "zai-cn",
+          "method": "cn",
+          "cli_flag": "--zai-api-key",
+          "option_key": "zaiApiKey",
+          "env_var": null,
+          "label": "CN"
+        }
+      ]
+    }
+  ]
+}

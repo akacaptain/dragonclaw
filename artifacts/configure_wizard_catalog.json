@@ -1,0 +1,78 @@
+{
+  "oc_version": "2026.6.1",
+  "source": "oc_configure_wizard",
+  "sections": [
+    {
+      "id": "workspace",
+      "label": "Workspace",
+      "hint": "Set workspace + sessions"
+    },
+    {
+      "id": "model",
+      "label": "Model",
+      "hint": "Pick provider + credentials"
+    },
+    {
+      "id": "web",
+      "label": "Web tools",
+      "hint": "Configure web search (Perplexity/Brave) + fetch"
+    },
+    {
+      "id": "gateway",
+      "label": "Gateway",
+      "hint": "Port, bind, auth, tailscale"
+    },
+    {
+      "id": "daemon",
+      "label": "Daemon",
+      "hint": "Install/manage the background service"
+    },
+    {
+      "id": "channels",
+      "label": "Channels",
+      "hint": "Link WhatsApp/Telegram/etc and defaults"
+    },
+    {
+      "id": "plugins",
+      "label": "Plugins",
+      "hint": "Configure plugin settings (sandbox, tools, etc.)"
+    },
+    {
+      "id": "skills",
+      "label": "Skills",
+      "hint": "Install/enable workspace skills"
+    },
+    {
+      "id": "health",
+      "label": "Health check",
+      "hint": "Run gateway + channel checks"
+    }
+  ],
+  "fresh_install_onboarding": [
+    {
+      "id": "gateway",
+      "label": "Gateway",
+      "hint": "Port, bind, auth, tailscale"
+    },
+    {
+      "id": "model",
+      "label": "Model",
+      "hint": "Pick provider + credentials"
+    },
+    {
+      "id": "channels",
+      "label": "Channels",
+      "hint": "Link WhatsApp/Telegram/etc and defaults"
+    }
+  ],
+  "gateway_mode_options": [
+    {
+      "id": "local",
+      "label": "Local (this machine)"
+    },
+    {
+      "id": "remote",
+      "label": "Remote (info-only)"
+    }
+  ]
+}
