@@ -143,6 +143,13 @@ def run_models_status(workspace_dir: Path) -> ToolResult:
     return _run_openclaw_cli(workspace_dir, ["models", "status"], timeout_s=20.0)
 
 
+def run_models_set(workspace_dir: Path, model_id: str) -> ToolResult:
+    model_id = model_id.strip()
+    if not model_id:
+        return ToolResult(name="models set", ok=False, output="", error="empty model id")
+    return _run_openclaw_cli(workspace_dir, ["models", "set", model_id], timeout_s=60.0)
+
+
 def run_models_list(
     workspace_dir: Path,
     provider: str,

@@ -102,8 +102,17 @@ Full detail in [SPEC.md](SPEC.md). SPEC is a **living proposal** — iterate per
 | Phase | Scope | Exit |
 |-------|-------|------|
 | **0** | SPEC, HANDOFF, prototype doc, cursor rules | Direction agreed — **done** |
-| **1** | Kernel + inference init | Contract tests; interactive runner; capability menu — **in progress** (pytest green on 2026.6.1) |
-| **2** | Flow engine, model flows | "setup openrouter" end-to-end |
+| **1** | Kernel + inference init | Contract tests; interactive runner; capability menu — **complete** |
+| **2** | Flow engine, model flows | DC scroll menus (`run_dc_select`); hub/LLM split; generic `catalog_for_provider` via OC CLI; manual E2E exit pending |
+
+## Phase 2 UX decisions (Jun 2026)
+
+- **Menus vs freeform:** Hub and flow steps use scrollable `run_dc_select` (filter rows only). **Ask DragonClaw** is a separate menu row → text prompt → intent router — not autocomplete in one widget.
+- **Model pick:** `dc_menu` + live picker catalog bridge + `openclaw models set` — provider-agnostic, no per-provider Python API adapters.
+- **Live catalog bridge:** `scripts/oc_picker_catalog.mjs` calls OpenClaw dist `runProviderCatalog` (same path as configure picker). Python `oc_picker_catalog.run_picker_catalog()` sets `OPENCLAW_DIST` from installed `openclaw` npm package (glob `provider-discovery-*.js` for pin bumps). Falls back to `models list --json` with honest `OpenClaw CLI catalog (N models)` label.
+- **Global menu chrome:** Ask DragonClaw / Back to hub (in-flow) / Quit on hub and model pick via `with_global_menu_rows`.
+- **Hub:** registered flows from `list_flows()` only — no validate/doctor stubs (those route via Ask path).
+- **OC upstream still worth filing:** align `models list` with picker catalog for `oc_json` probes — DC no longer blocks on it.
 | **3** | Doctor loop, scenario evals | Troubleshoot scenarios pass |
 | **4** | Channels via `oc_interactive` | Mac Mini B1 pass |
 | **5** | Ship: release-gate, docs, optional LoRA | Public release criteria met |

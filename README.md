@@ -2,7 +2,7 @@
 
 AI-powered OpenClaw installer, configurator, and doctor agent.
 
-**Status:** Phase 1 — kernel. OpenClaw pin: **2026.6.1**. See [SPEC.md](SPEC.md) and [HANDOFF.md](HANDOFF.md).
+**Status:** Phase 2 — flow engine. OpenClaw pin: **2026.6.1**. See [SPEC.md](SPEC.md) and [HANDOFF.md](HANDOFF.md).
 
 Prototype archive (read-only): `/Users/captain/dragonclaw_project`
 
@@ -30,11 +30,14 @@ Without `[runtime]`, first `dragonclaw` run will prompt for cloud vs local (loca
 ## Commands
 
 ```bash
-dragonclaw              # inference profile + welcome (Phase 1 stub; then exits)
+dragonclaw              # inference init + interactive setup REPL
 dragonclaw validate     # run openclaw config validate on workspace
+dragonclaw doctor       # run openclaw doctor (non-interactive)
 dragonclaw install      # OpenClaw npm install (dry-run by default; --apply to run)
-dragonclaw interactive -- --help   # foreground TTY demo (oc_interactive)
+dragonclaw interactive -- --help   # foreground TTY handoff (oc_interactive)
 ```
+
+In the REPL, try **setup openrouter** or pick **Setup OpenRouter** from the menu.
 
 ## Tests
 

@@ -22,9 +22,8 @@ from dragonclaw.inference_profile import (
 from dragonclaw.llm_client import LLMError
 from dragonclaw.presentation import (
     console,
-    read_user_turn,
-    render_choice_menu,
-    resolve_menu_choice,
+    run_dc_select,
+    run_text_prompt,
 )
 
 
@@ -37,7 +36,7 @@ def _prompt_openrouter_key() -> str:
         "[dim]Your key is only used for DragonClaw's setup assistant, not sent elsewhere.[/dim]"
     )
     while True:
-        raw = read_user_turn()
+        raw = run_text_prompt("Paste your OpenRouter API key (or type 'skip')")
         if not raw.strip():
             console.print("[yellow]Please paste your API key, or type 'skip' to decide later.[/yellow]")
             continue
@@ -74,8 +73,7 @@ def run_inference_tier_menu(
             "Continue with local AI anyway (may be slow)",
             "I'll add a key later",
         ]
-        render_choice_menu("How should DragonClaw run its setup assistant?", options)
-        choice = resolve_menu_choice(read_user_turn(), options)
+        choice = run_dc_select("How should DragonClaw run its setup assistant?", options)
 
         if choice.startswith("Use cloud assistant"):
             key = _prompt_openrouter_key()

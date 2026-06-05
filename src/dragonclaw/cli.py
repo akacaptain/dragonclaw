@@ -1,4 +1,4 @@
-"""DragonClaw consumer CLI (Phase 1 kernel entry)."""
+"""DragonClaw consumer CLI."""
 
 from __future__ import annotations
 
@@ -9,11 +9,12 @@ import typer
 
 from dragonclaw import __version__
 from dragonclaw.bootstrap import default_workspace_dir, ensure_workspace_dir
+from dragonclaw.chat_loop import run_chat_loop
 from dragonclaw.inference_onboarding import inference_mode_label, run_inference_tier_menu
 from dragonclaw.installer import build_install_plan, execute_install, format_prereq_report, openclaw_installed
 from dragonclaw.openclaw_interactive import run_openclaw_interactive
-from dragonclaw.openclaw_tools import tool_validate_config
-from dragonclaw.presentation import console, render_welcome
+from dragonclaw.openclaw_tools import run_doctor, tool_validate_config
+from dragonclaw.presentation import UserExit, console, render_welcome
 
 app = typer.Typer(
     add_completion=False,
@@ -39,16 +40,22 @@ def main(
         return
 
     ws = _workspace(workspace)
-    profile = run_inference_tier_menu(ws)
-    render_welcome(version=__version__, inference_mode=inference_mode_label(profile))
+    try:
+        profile = run_inference_tier_menu(ws)
+        render_welcome(version=__version__, inference_mode=inference_mode_label(profile))
 
-    if openclaw_installed():
-        console.print("[green]OpenClaw is installed.[/green]")
-    else:
-        console.print("[yellow]OpenClaw is not installed yet.[/yellow] Run: dragonclaw install --apply")
+        if openclaw_installed():
+            console.print("[green]OpenClaw is installed.[/green]")
+        else:
+            console.print(
+                "[yellow]OpenClaw is not installed yet.[/yellow] Run: dragonclaw install --apply"
+            )
 
-    console.print(f"[dim]Workspace: {ws}[/dim]")
-    console.print("[dim]Commands: validate | install | interactive[/dim]")
+        console.print(f"[bright_black]Workspace: {ws}[/bright_black]")
+        run_chat_loop(ws)
+    except UserExit:
+        console.print("[bright_black]Goodbye.[/bright_black]")
+        raise typer.Exit(0) from None
 
 
 @app.command("validate")
@@ -69,6 +76,23 @@ def validate_cmd(
     if report.raw_output:
         console.print(report.raw_output[:2000])
     raise typer.Exit(1)
+
+
+@app.command("doctor")
+def doctor_cmd(
+    workspace: Annotated[Optional[Path], typer.Option("--workspace")] = None,
+    fix: Annotated[bool, typer.Option("--fix", help="Pass --fix to openclaw doctor")] = False,
+) -> None:
+    """Run openclaw doctor (non-interactive) and print output."""
+    ws = _workspace(workspace)
+    result = run_doctor(ws, fix=fix, non_interactive=True)
+    if result.output:
+        console.print(result.output[:8000])
+    if result.ok:
+        raise typer.Exit(0)
+    if result.error:
+        console.print(f"[red]{result.error}[/red]")
+    raise typer.Exit(result.exit_code or 1)
 
 
 @app.command("install")
@@ -99,7 +123,7 @@ def interactive_cmd(
     workspace: Annotated[Optional[Path], typer.Option("--workspace")] = None,
     pty: Annotated[bool, typer.Option("--pty", help="Allocate PTY when stdin is not a TTY")] = False,
 ) -> None:
-    """Foreground TTY handoff to openclaw (oc_interactive demo)."""
+    """Foreground TTY handoff to openclaw (oc_interactive)."""
     ws = _workspace(workspace)
     argv = oc_args or ["--help"]
     result = run_openclaw_interactive(ws, argv, use_pty=pty)

@@ -1,6 +1,6 @@
 # DragonClaw — product specification (draft)
 
-**Status:** Phase 1 — living proposal (iterate per phase)  
+**Status:** Phase 2 — flow engine (living proposal)  
 **Prototype reference:** `/Users/captain/dragonclaw_project` (archive only)  
 **OpenClaw pin (initial):** 2026.6.1 (via release-gate artifacts)
 
@@ -160,7 +160,7 @@ Maintainer override: `DRAGONCLAW_USE_REMOTE_API=1`. LoRA deferred to Phase 5+ ev
 **Deliverables:** `HANDOFF.md`, `SPEC.md`, `docs/prototype.md`, `.cursor/rules/`  
 **Exit:** Direction agreed; living SPEC sufficient to start Phase 1.
 
-### Phase 1 — Kernel (current)
+### Phase 1 — Kernel (complete)
 
 Port from prototype Tier A:
 
@@ -172,7 +172,7 @@ Port from prototype Tier A:
 
 **Exit:** validate gate works; interactive runner demo'd with `openclaw --help` or configure dry path; installer smoke test; inference capability menu on init.
 
-### Phase 2 — Flow engine
+### Phase 2 — Flow engine (current)
 
 - Flow registry loader from artifacts
 - Session router + thin `dragonclaw` entry
