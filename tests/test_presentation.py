@@ -7,10 +7,12 @@ from dragonclaw.presentation import (
     ASK_DRAGONCLAW_OPTION,
     FLOW_PAUSE_HUB,
     FREE_TEXT_OPTION,
+    LOBSTER_ACCENT,
     QUIT_OPTION,
     UserExit,
     _menu_style,
     classify_global_menu_choice,
+    format_checklist,
     is_exit_command,
     menus_use_tty,
     resolve_menu_choice,
@@ -19,6 +21,7 @@ from dragonclaw.presentation import (
     run_text_prompt,
     with_global_menu_rows,
 )
+from dragonclaw.session_store import ChecklistItem
 
 
 def test_menus_use_tty_respects_plain_ui(monkeypatch):
@@ -106,11 +109,40 @@ def test_classify_global_menu_choice():
 
 def test_no_dual_highlight_style():
     style = _menu_style()
-    selected_rules = [
-        attrs
-        for class_names, attrs in style.class_names_and_attrs
-        if class_names == frozenset({"selected"})
-    ]
-    assert len(selected_rules) == 1
-    attrs = selected_rules[0]
-    assert attrs.color is None and attrs.bgcolor is None
+    rules = {frozenset(names): attrs for names, attrs in style.class_names_and_attrs}
+    selected = rules[frozenset({"selected"})]
+    assert selected.color is None and selected.bgcolor is None
+    qmark = rules[frozenset({"qmark"})]
+    assert qmark.color is None and qmark.bgcolor is None
+    question = rules[frozenset({"question"})]
+    assert question.color.upper().lstrip("#") == LOBSTER_ACCENT.lstrip("#").upper()
+    assert question.bold is True
+    highlighted = rules[frozenset({"highlighted"})]
+    assert highlighted.bgcolor is None
+
+
+def test_select_menu_tty_does_not_pass_default(monkeypatch):
+    monkeypatch.delenv("DRAGONCLAW_PLAIN_UI", raising=False)
+
+    with (
+        patch("dragonclaw.presentation.menus_use_tty", return_value=True),
+        patch("dragonclaw.presentation.console.print"),
+        patch("questionary.select") as mock_select,
+    ):
+        mock_select.return_value.unsafe_ask.return_value = "Alpha"
+        assert run_select_menu("Pick one", ["Alpha", "Beta"]) == "Alpha"
+
+    assert "default" not in mock_select.call_args.kwargs
+    assert mock_select.call_args.args[0] == " "
+
+
+def test_format_checklist_uses_lobster_palette():
+    text = format_checklist(
+        [
+            ChecklistItem(id="auth", label="Auth", done=True, detail="ok"),
+            ChecklistItem(id="primary", label="Primary", done=False),
+        ]
+    )
+    assert LOBSTER_ACCENT in text
+    assert "Auth" in text
+    assert "Primary" in text

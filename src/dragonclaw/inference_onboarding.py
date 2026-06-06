@@ -21,6 +21,8 @@ from dragonclaw.inference_profile import (
 )
 from dragonclaw.llm_client import LLMError
 from dragonclaw.presentation import (
+    LOBSTER_ACCENT,
+    LOBSTER_MUTED,
     console,
     run_dc_select,
     run_text_prompt,
@@ -29,11 +31,12 @@ from dragonclaw.presentation import (
 
 def _prompt_openrouter_key() -> str:
     console.print(
-        f"\n[cyan]OpenRouter setup[/cyan]\n"
+        f"\n[bold {LOBSTER_ACCENT}]OpenRouter setup[/bold {LOBSTER_ACCENT}]\n"
         f"1. Create a free account: {OPENROUTER_SIGNUP_URL}\n"
         "2. Copy your API key (starts with sk-or-v1-).\n"
         "3. Paste it below — stored locally in ~/.openclaw/dragonclaw_inference.json\n"
-        "[dim]Your key is only used for DragonClaw's setup assistant, not sent elsewhere.[/dim]"
+        f"[{LOBSTER_MUTED}]Your key is only used for DragonClaw's setup assistant, "
+        f"not sent elsewhere.[/{LOBSTER_MUTED}]"
     )
     while True:
         raw = run_text_prompt("Paste your OpenRouter API key (or type 'skip')")

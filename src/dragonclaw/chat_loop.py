@@ -4,27 +4,39 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from dragonclaw.flow_engine import FlowEngine, begin_flow
-from dragonclaw.flow_registry import get_flow, list_flows
+from dragonclaw.flow_engine import FlowEngine, begin_flow, refresh_hub_checklist
+from dragonclaw.flow_registry import (
+    get_flow,
+    hub_labels_for_session,
+    hub_next_hint,
+    resolve_flow_id_from_hub_label,
+)
 from dragonclaw.flow_router import route_intent
 from dragonclaw.openclaw_tools import run_doctor, tool_validate_config
 from dragonclaw.presentation import (
     ASK_DRAGONCLAW_OPTION,
+    LOBSTER_MUTED,
     QUIT_OPTION,
     UserExit,
     classify_global_menu_choice,
     console,
+    format_checklist,
     run_dc_select,
     run_flow_pause_menu,
     run_text_prompt,
     with_global_menu_rows,
 )
-from dragonclaw.session_store import load_session, save_session
+from dragonclaw.session_store import (
+    load_session,
+    prepare_session_startup,
+    save_session,
+)
 
 
 def run_chat_loop(workspace_dir: Path) -> None:
     workspace_dir = workspace_dir.expanduser().resolve()
-    session = load_session(workspace_dir)
+    session = prepare_session_startup(load_session(workspace_dir))
+    save_session(workspace_dir, session)
 
     console.print(
         "\n[bright_black]Ctrl+C or type 'quit' at any prompt to exit.[/bright_black]"
@@ -32,8 +44,11 @@ def run_chat_loop(workspace_dir: Path) -> None:
 
     try:
         while True:
+            if not session.active_flow_id:
+                refresh_hub_checklist(workspace_dir, session)
+
             if session.checklist:
-                text = session.render_checklist()
+                text = format_checklist(session.checklist)
                 if text:
                     console.print(f"\n{text}")
 
@@ -72,7 +87,11 @@ def run_chat_loop(workspace_dir: Path) -> None:
                 save_session(workspace_dir, session)
                 continue
 
-            hub_choice = _run_hub_select()
+            hint = hub_next_hint(session, workspace_dir=workspace_dir)
+            if hint:
+                console.print(f"\n[{LOBSTER_MUTED}]{hint}[/{LOBSTER_MUTED}]")
+
+            hub_choice = _run_hub_select(session, workspace_dir)
             hub_action = classify_global_menu_choice(hub_choice)
             if hub_action == "quit":
                 raise UserExit()
@@ -81,7 +100,9 @@ def run_chat_loop(workspace_dir: Path) -> None:
                 save_session(workspace_dir, session)
                 continue
 
-            flow_id = _resolve_hub_choice(hub_choice)
+            flow_id = resolve_flow_id_from_hub_label(
+                hub_choice, session, workspace_dir=workspace_dir
+            )
             if flow_id is None:
                 console.print("[yellow]That option is not available yet.[/yellow]")
                 continue
@@ -100,20 +121,12 @@ def run_chat_loop(workspace_dir: Path) -> None:
         console.print("[bright_black]Goodbye.[/bright_black]")
 
 
-def _hub_content_labels() -> list[str]:
-    return [flow.label for flow in list_flows()]
-
-
-def _run_hub_select() -> str:
-    labels = with_global_menu_rows(_hub_content_labels(), in_flow=False)
+def _run_hub_select(session, workspace_dir: Path) -> str:
+    content = [
+        label for label, _ in hub_labels_for_session(session, workspace_dir=workspace_dir)
+    ]
+    labels = with_global_menu_rows(content, in_flow=False)
     return run_dc_select("What would you like to do?", labels)
-
-
-def _resolve_hub_choice(choice: str) -> str | None:
-    for flow in list_flows():
-        if choice == flow.label:
-            return flow.flow_id
-    return None
 
 
 def _handle_ask_dragonclaw(

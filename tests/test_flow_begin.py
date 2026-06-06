@@ -8,7 +8,7 @@ from dragonclaw.flow_engine import (
     sync_checklist_from_probes,
 )
 from dragonclaw.flow_registry import get_flow, init_checklist_for_flow
-from dragonclaw.openclaw_tools import ToolResult
+from dragonclaw.model_list import ModelCatalogEntry
 from dragonclaw.session_store import ChecklistItem, SessionState
 
 
@@ -49,8 +49,8 @@ def test_begin_flow_skips_to_model_list_when_auth_done(tmp_path):
         patch("dragonclaw.flow_engine.workspace_has_provider_auth", return_value=True),
         patch("dragonclaw.flow_engine.openclaw_installed", return_value=True),
         patch(
-            "dragonclaw.flow_engine.run_models_list",
-            return_value=ToolResult(name="models", ok=False, output="", error="not configured"),
+            "dragonclaw.flow_engine.catalog_for_provider",
+            return_value=([], "not configured"),
         ),
     ):
         begin_flow(workspace, session, flow)
@@ -131,11 +131,10 @@ def test_sync_checklist_marks_primary_from_config(tmp_path):
     with (
         patch("dragonclaw.flow_engine.workspace_has_provider_auth", return_value=True),
         patch(
-            "dragonclaw.flow_engine.run_models_list",
-            return_value=ToolResult(
-                name="models",
-                ok=True,
-                output='{"models":[{"key":"openrouter/auto"}]}',
+            "dragonclaw.flow_engine.catalog_for_provider",
+            return_value=(
+                [ModelCatalogEntry(model_id="openrouter/auto")],
+                "test",
             ),
         ),
     ):
@@ -145,7 +144,8 @@ def test_sync_checklist_marks_primary_from_config(tmp_path):
     assert primary.done
     assert session.flow_vars.get("primary_model") == "openrouter/auto"
     models = next(item for item in session.checklist if item.id == "openrouter_models")
-    assert models.detail == "list OK"
+    assert not models.done
+    assert "thin catalog" in models.detail
 
 
 def test_checklist_labels_refresh_on_begin_flow(tmp_path):
@@ -210,5 +210,4 @@ def test_first_incomplete_step_after_primary_in_config(tmp_path):
     ):
         index = first_incomplete_step(flow, workspace, session)
 
-    validate_index = next(i for i, s in enumerate(flow.steps) if s.step_id == "models_probe")
-    assert index == validate_index
+    assert index == len(flow.steps)

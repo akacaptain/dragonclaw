@@ -2,8 +2,13 @@ from pathlib import Path
 from unittest.mock import patch
 
 from dragonclaw.model_list import (
+    MIN_LIVE_CATALOG_MODELS,
     ModelCatalogEntry,
     catalog_for_provider,
+    format_models_probe_detail,
+    models_catalog_sufficient,
+    models_list_count,
+    models_list_probe_ok,
     normalize_model_key,
     parse_models_list_entries,
     parse_models_list_json,
@@ -48,10 +53,38 @@ def _picker_payload(count: int) -> str:
     return json.dumps({"ok": True, "source": "picker_catalog", "models": models})
 
 
-def test_catalog_prefers_picker_bridge(tmp_path):
+def test_catalog_prefers_dc_adapter(tmp_path):
+    workspace = tmp_path / "ws"
+    workspace.mkdir()
+    dc_entries = [
+        ModelCatalogEntry(model_id=f"openrouter/model-{index}", display_name=f"Model {index}")
+        for index in range(200)
+    ]
+    with (
+        patch(
+            "dragonclaw.dc_catalog.fetch_dc_catalog",
+            return_value=(dc_entries, "DragonClaw live catalog (200 models)"),
+        ) as mock_dc,
+        patch("dragonclaw.model_list.run_picker_catalog") as mock_picker,
+        patch("dragonclaw.model_list.run_models_list") as mock_list,
+    ):
+        entries, detail = catalog_for_provider(workspace, "openrouter")
+
+    mock_dc.assert_called_once()
+    mock_picker.assert_not_called()
+    mock_list.assert_not_called()
+    assert len(entries) == 200
+    assert "DragonClaw" in detail
+
+
+def test_catalog_prefers_picker_when_dc_empty(tmp_path):
     workspace = tmp_path / "ws"
     workspace.mkdir()
     with (
+        patch(
+            "dragonclaw.dc_catalog.fetch_dc_catalog",
+            return_value=([], "API key not found"),
+        ),
         patch(
             "dragonclaw.model_list.run_picker_catalog",
             return_value=ToolResult(name="picker_catalog", ok=True, output=_picker_payload(200)),
@@ -71,6 +104,10 @@ def test_catalog_fallback_to_models_list(tmp_path):
     workspace.mkdir()
     groq_json = '{"models": [{"key": "llama-3.3-70b-versatile", "name": "Llama 3.3"}]}'
     with (
+        patch(
+            "dragonclaw.dc_catalog.fetch_dc_catalog",
+            return_value=([], "no DC adapter"),
+        ),
         patch(
             "dragonclaw.model_list.run_picker_catalog",
             return_value=ToolResult(
@@ -93,11 +130,27 @@ def test_catalog_fallback_to_models_list(tmp_path):
     assert "OpenClaw CLI catalog" in detail
 
 
+def test_models_list_count_and_thin_catalog_detail():
+    raw = '{"count": 3, "models": [{"key": "openrouter/auto"}]}'
+    result = ToolResult(name="models", ok=True, output=raw)
+    assert models_list_probe_ok(result)
+    assert models_list_count(result) == 3
+    assert not models_catalog_sufficient(3)
+    assert models_catalog_sufficient(MIN_LIVE_CATALOG_MODELS)
+    detail = format_models_probe_detail(3)
+    assert "3 models" in detail
+    assert "thin catalog" in detail
+
+
 def test_catalog_for_provider_generic(tmp_path):
     workspace = tmp_path / "ws"
     workspace.mkdir()
     groq_json = '{"models": [{"key": "llama-3.3-70b-versatile", "name": "Llama 3.3"}]}'
     with (
+        patch(
+            "dragonclaw.dc_catalog.fetch_dc_catalog",
+            return_value=([], "no DC adapter"),
+        ),
         patch(
             "dragonclaw.model_list.run_picker_catalog",
             return_value=ToolResult(name="picker_catalog", ok=False, output="", error="no dist"),

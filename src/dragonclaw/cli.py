@@ -13,7 +13,14 @@ from dragonclaw.chat_loop import run_chat_loop
 from dragonclaw.inference_onboarding import inference_mode_label, run_inference_tier_menu
 from dragonclaw.installer import build_install_plan, execute_install, format_prereq_report, openclaw_installed
 from dragonclaw.openclaw_interactive import run_openclaw_interactive
-from dragonclaw.openclaw_tools import run_doctor, tool_validate_config
+from dragonclaw.model_list import (
+    MIN_LIVE_CATALOG_MODELS,
+    format_models_probe_detail,
+    models_catalog_sufficient,
+    models_list_count,
+    models_list_probe_ok,
+)
+from dragonclaw.openclaw_tools import run_doctor, run_models_list, tool_validate_config
 from dragonclaw.presentation import UserExit, console, render_welcome
 
 app = typer.Typer(
@@ -76,6 +83,38 @@ def validate_cmd(
     if report.raw_output:
         console.print(report.raw_output[:2000])
     raise typer.Exit(1)
+
+
+@app.command("catalog-check")
+def catalog_check_cmd(
+    provider: Annotated[str, typer.Argument(help="Provider id (e.g. openrouter, anthropic)")] = "openrouter",
+    workspace: Annotated[Optional[Path], typer.Option("--workspace")] = None,
+) -> None:
+    """Diagnose OpenClaw model catalog size for a provider (thin-catalog OC repro)."""
+    ws = _workspace(workspace)
+    result = run_models_list(ws, provider)
+    if not models_list_probe_ok(result):
+        console.print(f"[red]models list failed for {provider}[/red]")
+        if result.error:
+            console.print(result.error)
+        if result.output:
+            console.print(result.output[:2000])
+        raise typer.Exit(1)
+
+    count = models_list_count(result)
+    detail = format_models_probe_detail(count)
+    sufficient = models_catalog_sufficient(count)
+    console.print(f"Provider: {provider}")
+    console.print(f"Count: {count}")
+    console.print(f"Detail: {detail}")
+    console.print(f"Live catalog bar (>={MIN_LIVE_CATALOG_MODELS}): {'pass' if sufficient else 'FAIL'}")
+    if not sufficient:
+        console.print(
+            "[yellow]Thin catalog is an OpenClaw upstream issue when configure picker "
+            "shows the same few rows. Compare: openclaw config --section model[/yellow]"
+        )
+        raise typer.Exit(2)
+    raise typer.Exit(0)
 
 
 @app.command("doctor")

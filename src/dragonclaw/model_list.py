@@ -11,6 +11,9 @@ from typing import Any
 from dragonclaw.oc_picker_catalog import run_picker_catalog
 from dragonclaw.openclaw_tools import ToolResult, run_models_list
 
+# Go/no-go bar for a live provider catalog (setup flow checklist).
+MIN_LIVE_CATALOG_MODELS = 50
+
 
 @dataclass(frozen=True)
 class ModelCatalogEntry:
@@ -22,6 +25,41 @@ class ModelCatalogEntry:
         if name and name != self.model_id:
             return f"{name} — {self.model_id}"
         return self.model_id
+
+
+def models_list_count(result: ToolResult) -> int:
+    """Return model count from openclaw models list output; 0 when unreachable."""
+    if not models_list_probe_ok(result):
+        return 0
+    payload = _extract_json_payload(result.output)
+    if payload is not None:
+        count = payload.get("count")
+        if isinstance(count, int):
+            return count
+        models = payload.get("models")
+        if isinstance(models, list):
+            return len(models)
+    return len(parse_models_list_entries(result.output, ""))
+
+
+def models_catalog_sufficient(
+    count: int,
+    *,
+    minimum: int = MIN_LIVE_CATALOG_MODELS,
+) -> bool:
+    return count >= minimum
+
+
+def format_models_probe_detail(
+    count: int,
+    *,
+    minimum: int = MIN_LIVE_CATALOG_MODELS,
+) -> str:
+    if models_catalog_sufficient(count, minimum=minimum):
+        return f"{count} models"
+    if count <= 0:
+        return "unreachable"
+    return f"{count} models (thin catalog — OC upstream issue)"
 
 
 def models_list_probe_ok(result: ToolResult) -> bool:
@@ -140,10 +178,21 @@ def parse_picker_catalog_json(text: str, provider: str) -> list[ModelCatalogEntr
     return entries
 
 
-def catalog_for_provider(workspace_dir: Path, provider: str) -> tuple[list[ModelCatalogEntry], str]:
-    """Generic OC catalog: picker live discovery first, models list fallback."""
+def catalog_for_provider(
+    workspace_dir: Path,
+    provider: str,
+    *,
+    flow_vars: dict[str, str] | None = None,
+) -> tuple[list[ModelCatalogEntry], str]:
+    """Catalog priority: DC live adapter, OC picker bridge, OC models list."""
     provider = provider.strip().lower()
     workspace_dir = workspace_dir.expanduser().resolve()
+
+    from dragonclaw.dc_catalog import fetch_dc_catalog
+
+    dc_entries, dc_detail = fetch_dc_catalog(workspace_dir, provider, flow_vars=flow_vars)
+    if dc_entries:
+        return dc_entries, dc_detail
 
     picker = run_picker_catalog(workspace_dir, provider)
     if picker.ok:
@@ -153,11 +202,14 @@ def catalog_for_provider(workspace_dir: Path, provider: str) -> tuple[list[Model
 
     result = run_models_list(workspace_dir, provider)
     if not result.ok:
-        detail = picker.error or result.error or result.output or "models list failed"
+        detail = dc_detail or picker.error or result.error or result.output or "models list failed"
         return [], detail
     entries = parse_models_list_entries(result.output, provider)
     count = len(entries)
-    return entries, f"OpenClaw CLI catalog ({count} models)"
+    source = f"OpenClaw CLI catalog ({count} models)"
+    if dc_detail and dc_detail != "no DC adapter":
+        source = f"{source}; DC: {dc_detail}"
+    return entries, source
 
 
 def _extract_json_payload(text: str) -> dict[str, Any] | None:

@@ -11,6 +11,11 @@ from rich.console import Console
 
 console = Console()
 
+# OpenClaw @clack/prompts lobster palette (pin 2026.6.1) — Python-only, no Node dep.
+LOBSTER_ACCENT = "#FF5A2D"
+LOBSTER_MUTED = "#8B7F77"
+LOBSTER_SUCCESS = "#2FBF71"
+
 _SECRET_PROMPT_RE = re.compile(
     r"\b(token|api[_ -]?key|password|secret|credential)\b",
     re.IGNORECASE,
@@ -19,6 +24,10 @@ _SECRET_PROMPT_RE = re.compile(
 FREE_TEXT_OPTION = "(describe in your own words)"
 ASK_DRAGONCLAW_OPTION = "Ask DragonClaw"
 ENTER_MODEL_ID_MANUALLY = "Enter model id manually"
+MODEL_PICK_OC_FRAME = (
+    "OpenClaw configure (Model section) — pick your primary model. "
+    "Ctrl+C returns to DragonClaw."
+)
 FLOW_PAUSE_RETRY = "Retry this step"
 FLOW_PAUSE_HUB = "Back to hub"
 QUIT_OPTION = "Quit"
@@ -49,17 +58,22 @@ def _menu_style():
 
         _MENU_STYLE = Style(
             [
-                ("qmark", "fg:ansicyan bold"),
-                ("question", "fg:ansicyan bold"),
-                ("answer", "fg:ansigreen bold"),
-                ("pointer", "fg:ansicyan bold"),
-                ("highlighted", "fg:ansiwhite bg:ansicyan bold"),
+                ("qmark", ""),
+                ("question", f"bold fg:{LOBSTER_ACCENT}"),
+                ("answer", f"bold fg:{LOBSTER_SUCCESS}"),
+                ("pointer", f"fg:{LOBSTER_SUCCESS}"),
+                ("highlighted", f"bold fg:{LOBSTER_ACCENT}"),
                 # Neutralize default-row styling — only highlighted row shows active state.
                 ("selected", ""),
-                ("instruction", "fg:ansibrightblack"),
+                ("instruction", f"fg:{LOBSTER_MUTED}"),
             ]
         )
     return _MENU_STYLE
+
+
+def _print_clack_prompt(title: str) -> None:
+    """OC-style intro line before questionary select (◇, no ? prefix)."""
+    console.print(f"\n[bold {LOBSTER_ACCENT}]◇ {title}[/bold {LOBSTER_ACCENT}]")
 
 
 def menus_use_tty() -> bool:
@@ -75,9 +89,12 @@ def render_welcome(
     oc_version: str | None = None,
     inference_mode: str = "local",
 ) -> None:
-    console.print(f"[bold blue]DragonClaw v{version}[/bold blue] — OpenClaw setup assistant")
+    console.print(
+        f"[bold {LOBSTER_ACCENT}]DragonClaw v{version}[/bold {LOBSTER_ACCENT}] "
+        "— OpenClaw setup assistant"
+    )
     if oc_version:
-        console.print(f"[bright_black]Target OpenClaw pin: {oc_version}[/bright_black]")
+        console.print(f"[{LOBSTER_MUTED}]Target OpenClaw pin: {oc_version}[/{LOBSTER_MUTED}]")
     if inference_mode == "local":
         console.print(
             "[bright_black]Your config stays on this machine. "
@@ -98,10 +115,10 @@ def render_welcome(
 
 def render_choice_menu(title: str, options: list[str]) -> None:
     """Static numbered menu — plain-UI fallback."""
-    console.print(f"\n[bold blue]{title}[/bold blue]")
+    console.print(f"\n[bold {LOBSTER_ACCENT}]◇ {title}[/bold {LOBSTER_ACCENT}]")
     for index, label in enumerate(options, start=1):
         console.print(f"  {index}. {label}")
-    console.print(f"  [bright_black]{FREE_TEXT_OPTION}[/bright_black]")
+    console.print(f"  [{LOBSTER_MUTED}]{FREE_TEXT_OPTION}[/{LOBSTER_MUTED}]")
 
 
 def run_autocomplete_prompt(
@@ -193,7 +210,7 @@ def run_oc_style_select(
         options,
         default_index=clamped,
         use_search_filter=True,
-        pointer="›",
+        pointer="● ",
     )
 
 
@@ -244,13 +261,12 @@ def run_select_menu(
     if menus_use_tty():
         import questionary
 
-        default = choices[default_index] if 0 <= default_index < len(choices) else None
         instruction = "(Type to filter, or use arrow keys)" if use_search_filter else "(Use arrow keys)"
+        _print_clack_prompt(title)
         try:
             value = questionary.select(
-                title,
+                " ",
                 choices=choices,
-                default=default,
                 pointer=pointer,
                 instruction=instruction,
                 style=_menu_style(),
@@ -283,20 +299,36 @@ def run_select_menu(
     return _raise_on_exit(raw)
 
 
+def format_checklist(items) -> str:
+    """Rich-marked checklist lines (OC lobster palette)."""
+    if not items:
+        return ""
+    lines = [f"[bold {LOBSTER_ACCENT}]Checklist:[/bold {LOBSTER_ACCENT}]"]
+    for item in items:
+        mark = "✓" if item.done else "○"
+        color = LOBSTER_SUCCESS if item.done else LOBSTER_MUTED
+        line = f"  [{color}]{mark} {item.label}[/{color}]"
+        if item.detail:
+            line += f" [{LOBSTER_MUTED}]— {item.detail}[/{LOBSTER_MUTED}]"
+        lines.append(line)
+    return "\n".join(lines)
+
+
 def run_text_prompt(message: str, *, secret: bool = False) -> str:
     """Single-line text or password prompt. Raises UserExit on Ctrl+C or quit."""
     if menus_use_tty():
         import questionary
 
         try:
+            _print_clack_prompt(message)
             if secret:
                 value = questionary.password(
-                    message,
+                    "",
                     style=_menu_style(),
                 ).unsafe_ask()
             else:
                 value = questionary.text(
-                    message,
+                    "",
                     style=_menu_style(),
                 ).unsafe_ask()
         except KeyboardInterrupt:
@@ -305,7 +337,7 @@ def run_text_prompt(message: str, *, secret: bool = False) -> str:
             raise UserExit()
         return _raise_on_exit(str(value).strip())
 
-    console.print(f"\n[bold blue]{message}[/bold blue]")
+    console.print(f"\n[bold {LOBSTER_ACCENT}]◇ {message}[/bold {LOBSTER_ACCENT}]")
     try:
         raw = typer.prompt("you", hide_input=secret).strip()
     except (KeyboardInterrupt, EOFError):

@@ -11,14 +11,16 @@ OpenClaw is **config authority**. DragonClaw orchestrates; it does not invent sc
 
 - `openclaw config validate` before apply
 - `openclaw doctor` / `--fix` during troubleshoot (LLM interprets output)
-- `openclaw models list`, `models status` for model probes
+- `openclaw models list`, `models status` for model probes (fallback catalog)
 - `openclaw onboard --non-interactive` for API-key provider auth when catalog supports it
-- Interactive configure/channel flows via **TTY handoff** (`oc_interactive`) — WhatsApp QR, OAuth, long scrollable pickers
+- `openclaw models set` after DC model pick (validate-gated)
+- Interactive configure/channel flows via **TTY handoff** (`oc_interactive`) — deferred for model/provider; future channels/OAuth
 
 ## DragonClaw owns
 
 - `dragonclaw` entry, install bootstrap, session/checklist
 - Menu framing and NL routing to `flow_id`
+- **`dc_catalog`** live model lists (adapter classes) + `dc_menu` model pick
 - Local secret inspection for diagnosis (with user consent)
 - Validate-gated minimal patches and backups
 - Plain-English explanation of OC tool output

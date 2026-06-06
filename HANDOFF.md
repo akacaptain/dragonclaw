@@ -5,6 +5,36 @@
 **Prototype (read-only):** `/Users/captain/dragonclaw_project`  
 **This repo:** first public DragonClaw — **not** a sequel; prototype never shipped.
 
+**Latest session transcript:** `/Users/captain/.cursor/projects/Users-captain-dragonclaw/agent-transcripts/42c2554b-d808-44d3-9159-8b79ed7e3844/42c2554b-d808-44d3-9159-8b79ed7e3844.jsonl`
+
+---
+
+## Pause / resume (Jun 2026)
+
+**Status:** Phase 2 in progress — DC-owned Setup OpenRouter implemented in code; **live E2E on dev machine not re-run** after `dc_catalog` landing.
+
+### Shipped (this pause)
+
+| Area | What |
+|------|------|
+| Catalog | [`src/dragonclaw/dc_catalog/`](src/dragonclaw/dc_catalog/) — OpenRouter live `GET /api/v1/models`; registry ready for more adapter classes |
+| Flow | [`build_model_provider_flow()`](src/dragonclaw/flow_registry.py) — generic `flow.model.<provider>`; hub lists **OpenRouter only** (`pid != "openrouter"` gate in `_load_model_provider_flows`) |
+| Model pick | `oc_interactive` configure **removed**; [`dc_menu` model_pick](src/dragonclaw/flow_engine.py) + manual id + key typo inspect ([`flow_model.py`](src/dragonclaw/flow_model.py)) |
+| Catalog chain | [`catalog_for_provider()`](src/dragonclaw/model_list.py): DC adapter → OC bridge → `models list` |
+| Tests | **110** pytest passing (`pip install -e ".[dev]" && pytest` or `.venv/bin/pytest tests/`) |
+
+### Resume here (priority)
+
+1. **Manual E2E** — valid OpenRouter key → full `dc_menu` catalog (≥50 models) → `models set` → validate + `models status` probe.
+2. **Multi-provider hub** — drop OpenRouter-only gate in [`flow_registry.py`](src/dragonclaw/flow_registry.py); add `openai_compatible` adapter entries (Groq, etc.).
+3. **Mined catalogs** — `release-gate` → `artifacts/model_catalog_<provider>.json` for static fallback tier (prototype [`docs/model_catalog.md`](file:///Users/captain/dragonclaw_project/docs/model_catalog.md)).
+4. **Phase 3** — doctor+ planner loop (SPEC Phase 3).
+
+### Not in scope yet
+
+- `oc_interactive` for model/provider (rejected) or channels (deferred).
+- Porting OC runtime provider plugins — DC owns **setup layer** only.
+
 ---
 
 ## Why this repo exists
@@ -103,19 +133,33 @@ Full detail in [SPEC.md](SPEC.md). SPEC is a **living proposal** — iterate per
 |-------|-------|------|
 | **0** | SPEC, HANDOFF, prototype doc, cursor rules | Direction agreed — **done** |
 | **1** | Kernel + inference init | Contract tests; interactive runner; capability menu — **complete** |
-| **2** | Flow engine, model flows | DC scroll menus (`run_dc_select`); hub/LLM split; generic `catalog_for_provider` via OC CLI; manual E2E exit pending |
+| **2** | Flow engine, model flows | Generic `flow.model.<provider>`; `dc_catalog` live adapters; `dc_menu` model pick; Plan A rejected — **in progress** |
+| **3** | Doctor loop, scenario evals | Troubleshoot scenarios pass |
+| **4** | Channels via `oc_interactive` | Mac Mini B1 pass |
+| **5** | Ship: release-gate, docs, optional LoRA | Public release criteria met |
 
 ## Phase 2 UX decisions (Jun 2026)
 
 - **Menus vs freeform:** Hub and flow steps use scrollable `run_dc_select` (filter rows only). **Ask DragonClaw** is a separate menu row → text prompt → intent router — not autocomplete in one widget.
-- **Model pick:** `dc_menu` + live picker catalog bridge + `openclaw models set` — provider-agnostic, no per-provider Python API adapters.
-- **Live catalog bridge:** `scripts/oc_picker_catalog.mjs` calls OpenClaw dist `runProviderCatalog` (same path as configure picker). Python `oc_picker_catalog.run_picker_catalog()` sets `OPENCLAW_DIST` from installed `openclaw` npm package (glob `provider-discovery-*.js` for pin bumps). Falls back to `models list --json` with honest `OpenClaw CLI catalog (N models)` label.
-- **Global menu chrome:** Ask DragonClaw / Back to hub (in-flow) / Quit on hub and model pick via `with_global_menu_rows`.
+- **Model pick (Plan A rejected):** `oc_interactive` configure handoff breaks validate gate — removed from model flows.
+- **Model catalog:** `dc_catalog` adapter classes (OpenRouter: live `GET /api/v1/models`) → `dc_menu` scroll pick + manual id. Fallback: OC picker bridge, then `models list`. OC setup uses static manifest (~3 rows on 2026.6.1) by design — not a broken install.
+- **Flows:** `build_model_provider_flow()` factory; hub registers `menu_primary` providers with API-key onboard (OpenRouter today).
+- **Session resume:** On `dragonclaw` startup, if OpenClaw **is installed** → **hub** (clear `active_flow_id`, keep checklist). If OC **not installed** → resume in-flow (install/key steps). Chat loop runs `FlowEngine` whenever `active_flow_id` is set (hub pick or resume) — not gated on `should_resume_session()`.
+- **DC menu chrome:** Lobster palette (`#FF5A2D` / `#8B7F77` / `#2FBF71`) on hub, pause, api_key, and inference menus — `◇` intro, no `?` qmark, `●` active pointer. `oc_interactive` steps hand off to real OC `@clack`.
+- **Global menu chrome:** Ask DragonClaw / Back to hub (in-flow) / Quit on hub and `dc_menu` steps (api_key, etc.).
 - **Hub:** registered flows from `list_flows()` only — no validate/doctor stubs (those route via Ask path).
-- **OC upstream still worth filing:** align `models list` with picker catalog for `oc_json` probes — DC no longer blocks on it.
-| **3** | Doctor loop, scenario evals | Troubleshoot scenarios pass |
-| **4** | Channels via `oc_interactive` | Mac Mini B1 pass |
-| **5** | Ship: release-gate, docs, optional LoRA | Public release criteria met |
+- **P0 fix (Jun 5):** Hub pick no longer loops when OC installed — `should_resume_session()` incorrectly blocked `FlowEngine` after `begin_flow()`.
+
+### E2E gate (Setup OpenRouter on OC 2026.6.1)
+
+1. `dragonclaw` with OC installed → hub first, checklist visible
+2. Pick **Setup OpenRouter** → api_key inspect → onboard → **DC live catalog** (not OC configure)
+3. `dc_menu` model pick shows full list when key valid (≥50 models from OpenRouter API)
+4. `models set` + validate + probe pass; primary is `openrouter/…`
+
+### OC catalog note (Jun 2026)
+
+`openclaw models list` prefers **static manifest** when rows exist (`list.source-plan.ts`); OpenRouter plugin ships 3 hardcoded models. Live fetch exists in `models scan` and DC `dc_catalog`, not OC setup UI. See `dragonclaw catalog-check openrouter`.
 
 ---
 

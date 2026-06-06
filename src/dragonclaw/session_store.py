@@ -45,6 +45,27 @@ def _session_file(workspace_dir: Path, session_id: str) -> Path:
     return workspace_dir / ".dragonclaw" / "sessions" / f"{safe}.json"
 
 
+def should_resume_session(session: SessionState) -> bool:
+    """Legacy helper: True only when resuming install/key steps before OC is installed.
+
+    Chat loop runs whenever ``active_flow_id`` is set; cold-start hub uses
+    ``prepare_session_startup()`` to clear stale flow state.
+    """
+    from dragonclaw.installer import openclaw_installed
+
+    return bool(session.active_flow_id) and not openclaw_installed()
+
+
+def prepare_session_startup(session: SessionState) -> SessionState:
+    """When OC is installed, hub is default — clear stale active_flow_id, keep checklist."""
+    from dragonclaw.installer import openclaw_installed
+
+    if openclaw_installed() and session.active_flow_id:
+        session.active_flow_id = None
+        session.flow_step_index = 0
+    return session
+
+
 def load_session(workspace_dir: Path, session_id: str = DEFAULT_SESSION_ID) -> SessionState:
     workspace_dir = workspace_dir.expanduser().resolve()
     path = _session_file(workspace_dir, session_id)
